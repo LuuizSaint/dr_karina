@@ -1,0 +1,54 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --main-color: #7334e4;
+  --second-color: #9450f2;
+
+  --font-color: #fff;
+  --bg-color: #d1d1d1;
+
+  --max-wd: 1440px;
+}
+/* ######################################################################### */
+body {
+  background-color: var(--bg-color);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* ######################################################################### */
+header {
+  background-color: var(--main-color);
+}
+header div {
+  max-width: var(--max-wd);
+  margin: auto;
+}
+header img {
+  width: 7rem;
+}
+/* ######################################################################### */
+main {
+  height: 100%;
+  max-width: var(--max-wd);
+  background-color: var(--second-color);
+}
+main nav {
+  background-color: var(--main-color);
+}
+main section {
+  background-color: var(--main-color);
+}
+/* ######################################################################### */
+footer {
+  background-color: var(--main-color);
+  color: var(--font-color);
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 0.2rem 0;
+}
