@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 :root {
   --main-color: #7334e4;
@@ -26,7 +27,7 @@ header {
   background-color: var(--main-color);
 }
 header div {
-  max-width: var(--max-wd);
+  width: var(--max-wd);
   margin: auto;
 }
 header img {
@@ -35,15 +36,52 @@ header img {
 /* ######################################################################### */
 main {
   height: 100%;
-  max-width: var(--max-wd);
-  background-color: var(--second-color);
+  width: var(--max-wd);
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 2rem 0;
 }
 main nav {
+  background-color: var(--second-color);
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+main nav form {
   background-color: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  border-radius: 10px;
+  padding: 2rem 0;
+}
+main nav form label {
+  margin: 0 0 0.2rem 1rem;
+  color: var(--font-color);
+  font-weight: 500;
+  font-size: 1rem;
+}
+main nav form input,
+select {
+  margin: 0 1rem 1rem 1rem;
+  padding: 0.6rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+main nav #buttons {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
 main section {
-  background-color: var(--main-color);
+  background-color: var(--second-color);
+  width: 67%;
+  padding-left: 2rem;
 }
+
 /* ######################################################################### */
 footer {
   background-color: var(--main-color);

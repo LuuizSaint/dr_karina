@@ -13,32 +13,25 @@
     <main>
       <nav>
         <form action="">
-          <fieldset id="field_name">
-            <label for="name_field">Nome</label>
-            <input type="text" name="" id="name_field" />
-          </fieldset>
+          <label for="name_field">Nome:</label>
+          <input type="text" name="" id="name_field" />
 
-          <fieldset>
-            <label for="place_field">Local:</label>
-            <select name="" id="place_field">
-              <option value="">Consultório</option>
-              <option value="">Sta Casa</option>
-              <option value="">Casa Saúde</option>
-            </select>
-          </fieldset>
+          <label for="place_field">Local:</label>
+          <select name="" id="place_field">
+            <option value="" selected>-- Selecione --</option>
+            <option value="">Consultório</option>
+            <option value="">Sta Casa</option>
+            <option value="">Casa Saúde</option>
+          </select>
 
-          <fieldset>
-            <label for="date_field">Data e Hora:</label>
-            <input type="date" name="" id="date_field" />
-            <input type="time" name="" id="date_field" />
-          </fieldset>
+          <label for="date_field">Data e Hora:</label>
+          <input type="date" name="" id="date_field" />
+          <input type="time" name="" id="date_field" />
 
-          <fieldset>
-            <label for="weight_field"
-              >Peso:<sub><i>(Em Kg)</i></sub></label
-            >
-            <input type="number" name="" id="weight_field" />
-          </fieldset>
+          <label for="weight_field"
+            >Peso:<sub><i>(Em Kg)</i></sub></label
+          >
+          <input type="number" name="" id="weight_field" step="0.1" />
         </form>
         <div id="buttons">
           <button>Folha de Procedimento</button>
