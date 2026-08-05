@@ -49,7 +49,12 @@
       <nav>
         <form action="">
           <label for="name_field">Nome:</label>
-          <input type="text" name="" id="name_field" />
+          <input
+            type="text"
+            name=""
+            id="name_field"
+            placeholder="Nome Completo do Menor"
+          />
 
           <label for="place_field">Local:</label>
           <select name="" id="place_field">
@@ -60,24 +65,33 @@
           </select>
 
           <label for="date_field">Data e Hora:</label>
-          <input type="date" name="" id="date_field" />
-          <input type="time" name="" id="date_field" />
+          <div id="date_time_input">
+            <input type="date" name="" id="date_field" />
+            <input type="time" name="" id="date_field" />
+          </div>
 
-          <label for="weight_field"
-            >Peso:<sub><i>(Em Kg)</i></sub></label
-          >
-          <input type="number" name="" id="weight_field" step="0.1" />
+          <label for="weight_field">Peso: </label>
+          <input
+            type="number"
+            name=""
+            id="weight_field"
+            step="0.1"
+            placeholder="Peso em Kg"
+          />
         </form>
         <div id="buttons">
           <button>Folha de Procedimento</button>
           <button>Receituário</button>
-        </div>
-        <div id="btns_orient">
           <button>Orient. Dra</button>
           <button>Orient. Paciente</button>
         </div>
       </nav>
-      <section></section>
+      <section>
+        <div id="preview"></div>
+        <div id="btn_prev_container">
+          <button>Imprimir</button>
+        </div>
+      </section>
     </main>
     <footer>
       <p>Feito com ❤ por Luiz D. Grande</p>
