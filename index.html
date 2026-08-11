@@ -47,7 +47,7 @@
     </header>
     <main>
       <nav>
-        <form action="">
+        <form action="" method="post">
           <label for="name_field">Nome:</label>
           <input
             type="text"
@@ -78,6 +78,42 @@
             step="0.1"
             placeholder="Peso em Kg"
           />
+
+          <label for="medic_field">Medicamentos:</label>
+          <input type="text" name="medic_field" id="" list="medic_list" />
+          <datalist id="medic_list">
+            <option value="Amoxicilina">Amoxicilina</option>
+            <option value="Ondif">Ondif</option>
+            <option value="Dipirona">Dipirona</option>
+          </datalist>
+          <div id="prescription">
+            <input type="number" name="" id="" placeholder="Quantidade:">
+            <select name="" id="medic_field">
+              <option value="">Caixa(s)</option selected>
+              <option value="">Frasco(s)</option>
+            </select>
+          </div>
+          <div id="prescription">
+            <select name="" id="medic_field">
+              <option value="">Tomar</option selected>
+              <option value="">Colocar</option>
+            </select>
+            <input type="number" name="" id="" placeholder="Qtd:">
+            <select name="" id="medic_field">
+              <option value="">ML</option selected>
+              <option value="">Comprimido</option>
+              <option value="">Filme</option>
+
+            </select>
+          </div>
+          <div id="prescription">
+            <input type="number" name="" id="" placeholder="De (Hrs):">
+            <input type="number" name="" id="" placeholder="Por (Dias):">
+          </div>
+          <div id="form_btn">
+            <input type="submit" value="Pronto" />
+            <input type="reset" value="Apagar" />
+          </div>
         </form>
         <div id="buttons">
           <button>Folha de Procedimento</button>
