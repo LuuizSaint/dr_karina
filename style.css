@@ -58,9 +58,10 @@ main nav {
   background: rgba(0, 0, 0, 0);
   backdrop-filter: blur(10px);
   width: 29%;
+  height: 90vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  row-gap: 1rem;
   padding: 1rem;
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
@@ -70,6 +71,14 @@ main nav form {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+  row-gap: 1rem;
+}
+.fieldset_info,
+.fieldset_medic {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  transition-duration: 10s;
 }
 main nav form label {
   margin: 0 0 0.4rem 1rem;
@@ -122,8 +131,7 @@ main nav form #form_btn {
 main nav form #form_btn > input {
   margin: 0;
 }
-
-main nav #buttons {
+.field_buttons {
   display: flex;
   flex-direction: column;
   background-color: var(--main-color);
@@ -151,7 +159,9 @@ button:hover {
 button:active {
   transform: translateY(0);
 }
-
+.fieldsetDisplayNone {
+  display: none;
+}
 /* ########################################################################## */
 main section {
   border-radius: 0.5rem;
