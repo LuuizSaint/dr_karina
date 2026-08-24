@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
     <title>Drª Karina</title>
   </head>
   <body>
@@ -43,20 +44,42 @@
       </defs>
     </svg>
     <header>
-      <div><img src="logo2.png" alt="Logo Dra. Karina" /></div>
+      <div>
+        <!-- <img src="logo.pngg" alt="Logo Dra. Karina" /> -->
+      </div>
     </header>
     <main>
       <nav>
-        <form action="" method="post">
-          <button id="btn_info">Informações:</button>
+        <form id="formContainer" action="#" method="post">
+          <button type="button" id="btn_info">Informações:</button>
           <div class="fieldset_info">
             <label for="name_field">Nome:</label>
             <input
               type="text"
               name="nameField"
               id="name_field"
-              placeholder="Nome Completo do Menor"
+              placeholder="Nome Completo do Menor/Adulto"
             />
+            <div id="radio_field">
+              <div>
+                <label for="adult_field">Adulto:</label>
+                <input
+                  type="radio"
+                  name="radioField"
+                  id="adult_field"
+                  value="adult"
+                />
+              </div>
+              <div>
+                <label for="child_field">Criança:</label>
+                <input
+                  type="radio"
+                  name="radioField"
+                  id="child_field"
+                  value="child"
+                />
+              </div>
+            </div>
             <label for="place_field">Local:</label>
             <select name="placeField" id="place_field">
               <option value="" selected>-- Selecione --</option>
@@ -77,51 +100,80 @@
               step="0.1"
               placeholder="Peso em Kg"
             />
+            <div class="form_btn">
+              <button type="reset">Apagar</button>
+              <button type="submit">Adicionar</button>
+            </div>
           </div>
-          <button id="btn_medic">Medicamentos:</button>
-          <div class="fieldset_medic fieldsetDisplayNone">
+          <button type="button" id="btn_medic">Medicamentos:</button>
+          <div class="fieldset_medic">
             <label for="medic_field">Medicamentos:</label>
-            <input type="text" name="medic_field" id="med_name_field" list="medic_list" />
+            <input
+              type="text"
+              name="medic_field"
+              id="med_name_field"
+              list="medic_list"
+            />
             <datalist id="medic_list">
               <option value="Amoxicilina">Amoxicilina</option>
               <option value="Ondif">Ondif</option>
               <option value="Dipirona">Dipirona</option>
             </datalist>
-            <div id="prescription">
-              <input type="number" name="" id="med_amount_field" placeholder="Quantidade:">
-              <select name="" id="med_boxes_field">
-                <option value="Caixa">Caixa(s)</option selected>
+            <div class="prescription">
+              <input
+                type="number"
+                name="medAmountField"
+                id="med_amount_field"
+                placeholder="Quantidade:"
+              />
+              <select name="meBdoxesField" id="med_boxes_field">
+                <option value="Caixa" selected>Caixa(s)</option>
                 <option value="Frasco">Frasco(s)</option>
               </select>
             </div>
-            <div id="prescription">
-              <select name="" id="med_form_field">
-                <option value="Tomar">Tomar</option selected>
+            <div class="prescription">
+              <select name="medFormField" id="med_form_field">
+                <option value="Tomar" selected>Tomar</option>
                 <option value="Colocar">Colocar</option>
               </select>
-              <input type="number" name="" id="med_amount_ingested_field" placeholder="Qtd:">
-              <select name="" id="med_method_field">
-                <option value="ML">ML</option selected>
+              <input
+                type="number"
+                name="medAmountIngestedField"
+                id="med_amount_ingested_field"
+                placeholder="Qtd:"
+              />
+              <select name="med_method_field" id="med_method_field">
+                <option value="ML" selected>ML</option>
                 <option value="Comprimido">Comprimido</option>
                 <option value="Filme">Filme</option>
               </select>
             </div>
-            <div id="prescription">
-              <input type="number" name="" id="med_hr_field" placeholder="De (Hrs):">
-              <input type="number" name="" id="med_day_field" placeholder="Por (Dias):">
+            <div class="prescription">
+              <input
+                type="number"
+                name="medHrField"
+                id="med_hr_field"
+                placeholder="De (Hrs):"
+              />
+              <input
+                type="number"
+                name="medDayField"
+                id="med_day_field"
+                placeholder="Por (Dias):"
+              />
             </div>
-            <div id="form_btn">
-              <input type="reset" value="Apagar" />
-              <input type="submit" value="Adicionar" />
+            <div class="form_btn">
+              <button type="reset">Apagar</button>
+              <button type="submit">Adicionar</button>
             </div>
           </div>
         </form>
-        <button id="btn_imp">Impressões:</button>
-        <div class="field_buttons fieldsetDisplayNone">
-          <button>Folha de Procedimento</button>
-          <button>Receituário</button>
-          <button>Orient. Dra</button>
-          <button>Orient. Paciente</button>
+        <button type="button" id="btn_imp">Impressões:</button>
+        <div class="field_buttons">
+          <button type="button">Folha de Procedimento</button>
+          <button type="button">Receituário</button>
+          <button type="button">Orient. Dra</button>
+          <button type="button">Orient. Paciente</button>
         </div>
       </nav>
       <section>
@@ -134,6 +186,7 @@
     <footer>
       <p>Feito com ❤ por Luiz D. Grande</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0/jquery.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
