@@ -44,9 +44,7 @@
       </defs>
     </svg>
     <header>
-      <div>
-        <!-- <img src="logo.pngg" alt="Logo Dra. Karina" /> -->
-      </div>
+      <div></div>
     </header>
     <main>
       <nav>
@@ -60,26 +58,11 @@
               id="name_field"
               placeholder="Nome Completo do Menor/Adulto"
             />
-            <div id="radio_field">
-              <div>
-                <label for="adult_field">Adulto:</label>
-                <input
-                  type="radio"
-                  name="radioField"
-                  id="adult_field"
-                  value="adult"
-                />
-              </div>
-              <div>
-                <label for="child_field">Criança:</label>
-                <input
-                  type="radio"
-                  name="radioField"
-                  id="child_field"
-                  value="child"
-                />
-              </div>
+            <div id="field_check">
+              <input type="checkbox" name="check" id="check" />
+              <label for="check">Menor</label>
             </div>
+
             <label for="place_field">Local:</label>
             <select name="placeField" id="place_field">
               <option value="" selected>-- Selecione --</option>
@@ -102,7 +85,7 @@
             />
             <div class="form_btn">
               <button type="reset">Apagar</button>
-              <button type="submit">Adicionar</button>
+              <button id="btn_submit_info" type="submit">Adicionar</button>
             </div>
           </div>
           <button type="button" id="btn_medic">Medicamentos:</button>
@@ -110,7 +93,7 @@
             <label for="medic_field">Medicamentos:</label>
             <input
               type="text"
-              name="medic_field"
+              name="medicNameField"
               id="med_name_field"
               list="medic_list"
             />
@@ -164,8 +147,19 @@
             </div>
             <div class="form_btn">
               <button type="reset">Apagar</button>
-              <button type="submit">Adicionar</button>
+              <button id="btn_submit_medic" type="submit">Adicionar</button>
             </div>
+          </div>
+          <button type="button" id="btn_obs">Observações:</button>
+          <div class="field_text">
+            <label for="text_obs">Observações: </label>
+            <textarea
+              name="textObs"
+              id="text_obs"
+              cols="30"
+              rows="10"
+              placeholder="Escreva aqui:"
+            ></textarea>
           </div>
         </form>
         <button type="button" id="btn_imp">Impressões:</button>
@@ -177,7 +171,39 @@
         </div>
       </nav>
       <section>
-        <div id="preview"></div>
+        <div id="preview">
+          <div id="header_preview">
+            <p>Dra. Karina Simonelli</p>
+            <p>Cirurgiã-Dentista</p>
+            <p>CRO-SP 124.253</p>
+          </div>
+          <div id="name_preview">
+            <p>A Menor Elisa Helena Silva</p>
+            <p>Uso Interno - Via Oral</p>
+          </div>
+          <div id="main_preview">
+            <pre>
+              Amoxicilina 400 mg/5 ml suspensão — 
+              01 caixa Tomar 03 ml de 12 em 12 horas por 07 dias
+            </pre>
+            <pre>
+              Ondit 4 mg — 
+              01 caixa Colocar 01 filme na língua de 08 em 08 horas por 02 dias
+            </pre>
+            <pre>
+              Dipirona solução 50 mg/ml —
+              01 frasco Tomar 05 ml de 06 em 06 horas por 03 dias
+            </pre>
+          </div>
+          <div id="data_preview">
+            <p>Votuporanga <span>00/00/0000</span></p>
+          </div>
+          <div id="footer_preview">
+            <p>(17) 99734-0541</p>
+            <p>Avenida da Saudade, 2302</p>
+            <p>Cidade Nova - Votuporanga - SP.</p>
+          </div>
+        </div>
         <div id="btn_prev_container">
           <button>Imprimir</button>
         </div>

@@ -48,8 +48,6 @@ header div {
   background-repeat: no-repeat;
   background-size: contain;
 }
-/* header img {
-} */
 /* ######################################################################### */
 main {
   width: var(--max-wd);
@@ -75,7 +73,7 @@ main nav form {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  row-gap: 1rem;
+  row-gap: 0.7rem;
 }
 .fieldset_info,
 .fieldset_medic {
@@ -83,28 +81,42 @@ main nav form {
   flex-direction: column;
   border-radius: 10px;
 }
-#radio_field {
+#field_check {
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
-#radio_field div {
-  font-weight: var(--font-weight);
-  font-size: var(--font-size);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  padding: 0.5rem;
-  column-gap: 1rem;
+#check + label {
+  display: block;
+  margin: 0em;
+  cursor: pointer;
+  padding: 0.1em;
 }
-#radio_field div input {
-  margin: 0rem;
-  padding: 0rem;
-  appearance: none;
-  padding: 0.7rem;
+#check {
+  display: none;
 }
-#radio_field input:checked {
-  background-color: #7334e4;
+
+#check + label:before {
+  content: "\2714";
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  display: inline-block;
+  height: 0.9rem;
+  vertical-align: ideographic;
+  color: transparent;
+  transition: 0.6s;
+  margin-right: 0.5rem;
+}
+#check + label:active:before {
+  transform: scale(0);
+}
+#check:checked + label:before {
+  background-color: var(--second-color);
+}
+#check:disabled + label:before {
+  transform: scale(1);
+}
+#check:checked:disabled + label:before {
+  transform: scale(1);
 }
 main nav form label {
   padding: 0 0 0.4rem 1rem;
@@ -149,6 +161,16 @@ main nav form .prescription input,
 main nav form .prescription select {
   width: 100%;
 }
+#text_obs {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-bottom: 4px solid var(--border-color);
+  outline: none;
+  padding: 0.4rem;
+  resize: none;
+}
+
 main nav form .form_btn {
   display: flex;
   justify-content: space-between;
@@ -214,6 +236,27 @@ main section #preview {
   width: 100%;
   height: 100%;
   margin-bottom: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+#header_preview {
+  text-align: center;
+}
+#name_preview {
+  text-align: center;
+}
+#main_preview {
+  padding: 0 1rem;
+  text-align: start;
+  width: 100%;
+}
+#footer_preview {
+  text-align: end;
+  width: 100%;
+  padding-right: 1rem;
 }
 
 main section #btn_prev_container {
@@ -250,3 +293,5 @@ footer {
   font-size: 0.83rem;
   font-weight: 500;
 }
+
+/* ######################################################################### */
