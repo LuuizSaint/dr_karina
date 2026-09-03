@@ -56,13 +56,8 @@
               type="text"
               name="nameField"
               id="name_field"
-              placeholder="Nome Completo do Menor/Adulto"
+              placeholder="Ao Menor / Sr(a)."
             />
-            <div id="field_check">
-              <input type="checkbox" name="check" id="check" />
-              <label for="check">Menor</label>
-            </div>
-
             <label for="place_field">Local:</label>
             <select name="placeField" id="place_field">
               <option value="" selected>-- Selecione --</option>
@@ -85,7 +80,9 @@
             />
             <div class="form_btn">
               <button type="reset">Apagar</button>
-              <button id="btn_submit_info" type="submit">Adicionar</button>
+              <button id="btn_add_info" type="button">
+                Adicionar Paciente
+              </button>
             </div>
           </div>
           <button type="button" id="btn_medic">Medicamentos:</button>
@@ -98,9 +95,12 @@
               list="medic_list"
             />
             <datalist id="medic_list">
-              <option value="Amoxicilina">Amoxicilina</option>
-              <option value="Ondif">Ondif</option>
-              <option value="Dipirona">Dipirona</option>
+              <option>Amoxicilina 400mg/5ml</option>
+              <option>Ondif 4mg</option>
+              <option>Dipirona Solução 50mg/ml</option>
+              <option>Amoxicilina 500mg</option>
+              <option>Dexametasona 4mg</option>
+              <option>Novalgina 1g</option>
             </datalist>
             <div class="prescription">
               <input
@@ -109,7 +109,7 @@
                 id="med_amount_field"
                 placeholder="Quantidade:"
               />
-              <select name="meBdoxesField" id="med_boxes_field">
+              <select name="medBoxesField" id="med_boxes_field">
                 <option value="Caixa" selected>Caixa(s)</option>
                 <option value="Frasco">Frasco(s)</option>
               </select>
@@ -125,7 +125,7 @@
                 id="med_amount_ingested_field"
                 placeholder="Qtd:"
               />
-              <select name="med_method_field" id="med_method_field">
+              <select name="medMethodField" id="med_method_field">
                 <option value="ML" selected>ML</option>
                 <option value="Comprimido">Comprimido</option>
                 <option value="Filme">Filme</option>
@@ -147,7 +147,9 @@
             </div>
             <div class="form_btn">
               <button type="reset">Apagar</button>
-              <button id="btn_submit_medic" type="submit">Adicionar</button>
+              <button id="btn_add_medic" type="button">
+                Adicionar Medicamento
+              </button>
             </div>
           </div>
           <button type="button" id="btn_obs">Observações:</button>
@@ -160,6 +162,7 @@
               rows="10"
               placeholder="Escreva aqui:"
             ></textarea>
+            <button id="btn_submit" type="submit">Adicionar</button>
           </div>
         </form>
         <button type="button" id="btn_imp">Impressões:</button>
@@ -178,21 +181,12 @@
             <p>CRO-SP 124.253</p>
           </div>
           <div id="name_preview">
-            <p>A Menor Elisa Helena Silva</p>
             <p>Uso Interno - Via Oral</p>
           </div>
           <div id="main_preview">
             <pre>
               Amoxicilina 400 mg/5 ml suspensão — 
               01 caixa Tomar 03 ml de 12 em 12 horas por 07 dias
-            </pre>
-            <pre>
-              Ondit 4 mg — 
-              01 caixa Colocar 01 filme na língua de 08 em 08 horas por 02 dias
-            </pre>
-            <pre>
-              Dipirona solução 50 mg/ml —
-              01 frasco Tomar 05 ml de 06 em 06 horas por 03 dias
             </pre>
           </div>
           <div id="data_preview">

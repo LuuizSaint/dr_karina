@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".fieldset_medic, .field_buttons, .field_text").hide();
+  $(".fieldset_info, .field_buttons, .field_text").hide();
 
   $("#btn_info").click(function (e) {
     $(".fieldset_info").slideToggle(700);
@@ -26,22 +26,12 @@ $(document).ready(function () {
     $(".field_buttons").slideUp(700);
   });
 
-  $("#field_check").on("click", "input[type=checkbox]", (event) => {
-    let check = event.target.value;
-    console.log(check);
-    if (check) {
-      console.log("true");
-      check = "off";
-    }
-    console.log(check);
-  });
-
   $(".fieldset_info").on("click", "button[type=reset]", (event) => {
     event.preventDefault();
     $(".fieldset_info>input, .fieldset_info>select").val("");
-    $("#date_field").val("0000-00-00");
-    $("#time_field").val("00-00");
-    $("#time_field").val("00-00");
+    $("#date_field").val("");
+    $("#time_field").val("");
+    $("input[type=checkbox]").removeAttr("checked");
   });
 
   $(".fieldset_medic").on("click", "button[type=reset]", (event) => {
@@ -49,23 +39,65 @@ $(document).ready(function () {
     $(".fieldset_medic input").val("");
   });
 
-  $("form").submit(function (e) {
-    e.preventDefault();
-    submitForm();
-  });
+  const form = document.querySelector("form");
+  const submitter = document.querySelector("#btn_submit_info");
 
-  function submitForm() {
-    const formData = new FormData(document.querySelector("form"));
-    formData.forEach((element) => {
-      console.log(element);
-    });
+  function getFormInfo() {
+    const formInfo = createFormData();
+
+    const form = {};
+    form.name = formInfo.get("nameField");
+    form.place = formInfo.get("placeField");
+    form.date = formInfo.get("dateField");
+    form.time = formInfo.get("TimeField");
+    form.weight = formInfo.get("weightField");
+    form.text = formInfo.get("textObs");
+
+    return form;
+  }
+  function getformMedic() {
+    const formMedics = createFormData();
+
+    const form = {};
+    form.name = formMedics.get("medicNameField");
+    form.amount = formMedics.get("medAmountField");
+    form.boxes = formMedics.get("medBoxesField");
+    form.form = formMedics.get("medFormField");
+    form.ingest = formMedics.get("medAmountIngestedField");
+    form.method = formMedics.get("medMethodField");
+    form.hr = formMedics.get("medHrField");
+    form.day = formMedics.get("medDayField");
+
+    return form;
   }
 
-  $("#btn_submit_info").click((e) => {
+  function createFormData() {
+    const formData = new FormData(form, submitter);
+    return formData;
+  }
+
+  function createPreview(obj) {
+    const pre = document.createElement("p");
+    const info = document.createTextNode(obj.name);
+    pre.appendChild(info);
+
+    const currentPreview = document.querySelector("#name_preview");
+    const firstChild = currentPreview.firstChild;
+
+    currentPreview.insertBefore(pre, firstChild);
+  }
+  $("form").submit(function (e) {
     e.preventDefault();
+    console.log(createFormData());
   });
 
-  $("#btn_submit_medic").click((e) => {
-    e.preventDefault();
+  $("#btn_add_info").click(() => {
+    const info = getFormInfo();
+    createPreview(info);
+    console.log(info);
+  });
+  $("#btn_add_medic").click(() => {
+    const medics = getformMedic();
+    console.log(medics);
   });
 });

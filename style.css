@@ -81,45 +81,8 @@ main nav form {
   flex-direction: column;
   border-radius: 10px;
 }
-#field_check {
-  display: flex;
-  justify-content: center;
-}
-#check + label {
-  display: block;
-  margin: 0em;
-  cursor: pointer;
-  padding: 0.1em;
-}
-#check {
-  display: none;
-}
-
-#check + label:before {
-  content: "\2714";
-  border-radius: 0.5rem;
-  border: 1px solid var(--border-color);
-  display: inline-block;
-  height: 0.9rem;
-  vertical-align: ideographic;
-  color: transparent;
-  transition: 0.6s;
-  margin-right: 0.5rem;
-}
-#check + label:active:before {
-  transform: scale(0);
-}
-#check:checked + label:before {
-  background-color: var(--second-color);
-}
-#check:disabled + label:before {
-  transform: scale(1);
-}
-#check:checked:disabled + label:before {
-  transform: scale(1);
-}
 main nav form label {
-  padding: 0 0 0.4rem 1rem;
+  padding-left: 1rem;
   color: var(--border-color);
   font-weight: 600;
   font-size: 1rem;
@@ -131,12 +94,11 @@ main nav form #date_time_input {
 }
 nav form #date_time_input input {
   width: 48%;
-  margin: 0;
 }
 main nav form input,
 main nav form select,
 #date_time_input > input {
-  margin: 0 0 0.4rem 0;
+  margin: 0.4rem 0 0.4rem 0;
   padding: 0.6rem;
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
@@ -169,6 +131,7 @@ main nav form .prescription select {
   outline: none;
   padding: 0.4rem;
   resize: none;
+  margin-bottom: 1rem;
 }
 
 main nav form .form_btn {
@@ -176,13 +139,7 @@ main nav form .form_btn {
   justify-content: space-between;
 }
 main nav form .form_btn {
-  margin: 0;
-}
-.form_btn button:hover {
-  transform: translateY(-0.33em);
-}
-.form_btn button:active {
-  transform: translateY(0);
+  margin-top: 0.5rem;
 }
 .field_buttons {
   display: flex;
