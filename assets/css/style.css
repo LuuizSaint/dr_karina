@@ -2,7 +2,22 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+@font-face {
+  font-family: "Tangerine";
+  src: url(/assets/css/fonts/Tangerine-Bold.ttf);
+}
+@font-face {
+  font-family: "FiraRegular";
+  src: url(/assets/css/fonts/FiraSans-Regular.ttf);
+}
+@font-face {
+  font-family: "FiraBold";
+  src: url(/assets/css/fonts/FiraSans-Bold.ttf);
+}
+@font-face {
+  font-family: "FiraLight";
+  src: url(/assets/css/fonts/FiraSans-Light.ttf);
 }
 :root {
   --main-color: #7334e4;
@@ -13,11 +28,15 @@
 
   --font-color: #fff;
   --font-weight: 500;
-  --font-size: 0.96rem;
+  --font-size: 0.99rem;
 
   --bg-color: #d1d1d1;
 
   --max-wd: 1200px;
+
+  --font-label: "FiraBold";
+  --font-all-text: "FiraRegular";
+  --font-dr: "Tangerine";
 }
 /* ######################################################################### */
 body {
@@ -43,7 +62,7 @@ header div {
   width: var(--max-wd);
   padding: 2rem;
   margin: auto;
-  background-image: url(logo.png);
+  background-image: url(../images/logo.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -86,6 +105,7 @@ main nav form label {
   color: var(--border-color);
   font-weight: 600;
   font-size: 1rem;
+  font-family: var(--font-label);
 }
 main nav form #date_time_input {
   display: flex;
@@ -109,6 +129,7 @@ main nav form select,
   transform: translateY(-0.2em);
   transition: 0.04s;
   transition-timing-function: linear;
+  font-family: var(--font-all-text);
 }
 main nav form input:hover,
 main nav form select:hover {
@@ -182,8 +203,9 @@ main section {
   align-items: center;
   padding: 1rem;
 }
-main section #preview {
-  background-image: url(bg_receituario.png);
+main section #preview_prescription,
+main section #preview_procedure {
+  background-image: url(/assets/images/bg_receituario.png);
   background-position: right;
   background-size: cover;
   background-repeat: no-repeat;
@@ -193,29 +215,75 @@ main section #preview {
   width: 100%;
   height: 100%;
   margin-bottom: 1rem;
-
+  font-family: var(--font-all-text);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
+
 #header_preview {
   text-align: center;
+  font-size: 0.9rem;
 }
-#name_preview {
+#header_preview p:first-child {
+  font-family: var(--font-dr);
+  font-size: 2rem;
+}
+#preview_prescription #name_preview {
   text-align: center;
 }
+#preview_procedure #name_preview {
+  text-align: center;
+  text-decoration: underline;
+  letter-spacing: 1px;
+}
 #main_preview {
-  padding: 0 1rem;
+  padding: 0 2rem;
   text-align: start;
   width: 100%;
 }
+#main_preview p {
+  margin-bottom: 1rem;
+  display: flex;
+}
+#main_preview span {
+  display: none;
+  font-size: 0.8rem;
+  padding-left: 1rem;
+}
+#main_preview p:hover span {
+  display: block;
+}
 #footer_preview {
-  text-align: end;
   width: 100%;
   padding-right: 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  row-gap: 0.4rem;
+}
+#footer_preview p {
+  display: flex;
+  align-items: end;
+}
+#footer_preview p:first-child::before {
+  content: "📞";
+  padding-right: 0.4rem;
+  filter: grayscale(100%);
+}
+#footer_preview p:nth-child(2)::before {
+  content: "📍";
+  padding-right: 0.4rem;
+  filter: grayscale(100%);
 }
 
+#footer_preview p:last-child::before {
+  content: "🏢";
+  padding-right: 0.4rem;
+  filter: grayscale(100%);
+}
 main section #btn_prev_container {
   display: flex;
   justify-content: end;
