@@ -1,13 +1,48 @@
 $(document).ready(function () {
-  $(".fieldset_medic, .fieldset_info, .field_text").hide();
+  $(
+    ".fieldset_medic, .fieldset_info, .field_text,#preview_prescription, #preview_obs",
+  ).hide();
+
+  $("#prescription").click(() => {
+    $("#preview_prescription").show();
+    $("#preview_procedure").hide();
+    $("#preview_obs").hide();
+
+    $(".fieldset_medic").slideDown(700);
+    $(".field_buttons").slideUp(700);
+  });
+  $("#procedure").click(() => {
+    $("#preview_procedure").show();
+    $("#preview_prescription").hide();
+    $("#preview_obs").hide();
+
+    $(".fieldset_info").slideDown(700);
+    $(".field_buttons").slideUp(700);
+  });
+  $("#guidance").click(() => {
+    $("#preview_obs").show();
+    $("#preview_procedure").hide();
+    $("#preview_prescription").hide();
+
+    $(".field_text").slideDown(700);
+    $(".field_buttons").slideUp(700);
+  });
 
   $("#btn_info").click(function (e) {
+    $("#preview_procedure").show();
+    $("#preview_prescription").hide();
+    $("#preview_obs").hide();
+
     $(".fieldset_info").slideToggle(700);
     $(".fieldset_medic").slideUp(700);
     $(".field_buttons").slideUp(700);
     $(".field_text").slideUp(700);
   });
   $("#btn_medic").click(function (e) {
+    $("#preview_prescription").show();
+    $("#preview_procedure").hide();
+    $("#preview_obs").hide();
+
     $(".fieldset_medic").slideToggle(700);
     $(".fieldset_info").slideUp(700);
     $(".field_buttons").slideUp(700);
@@ -20,6 +55,10 @@ $(document).ready(function () {
     $(".field_text").slideUp(700);
   });
   $("#btn_obs").click(function (e) {
+    $("#preview_obs").show();
+    $("#preview_procedure").hide();
+    $("#preview_prescription").hide();
+
     $(".field_text").slideToggle(700);
     $(".fieldset_medic").slideUp(700);
     $(".fieldset_info").slideUp(700);
@@ -48,6 +87,9 @@ $(document).ready(function () {
   }
   function btnResetMedic() {
     $(".fieldset_medic input").val("");
+  }
+  function btnResetObs() {
+    $("#text_obs").val("");
   }
 
   function createFormData() {
@@ -145,16 +187,18 @@ $(document).ready(function () {
     const firstChild = namePreview.firstChild;
 
     namePreview.insertBefore(container, firstChild);
+    const partOne = `${prescName} — ${prescAmount} ${prescBoxes}(s) —`;
+    const partTwo = `${
+      prescForm === "Colocar"
+        ? prescForm + " " + prescIngest + " Filme "
+        : prescForm + " " + prescIngest + " " + prescMethod
+    }`;
+    const partThree = `${
+      prescHr > 0 ? "de " + prescHr + " em " + prescHr + "hora(s) " : "por dia"
+    }`;
+    const partFour = `${prescDay > 0 ? " — por " + prescDay + " dia(s)" : ""}`;
 
-    const prescText = `
-    ${prescName} — 
-    ${prescAmount} 
-    ${prescBoxes}(s) — 
-    ${prescForm} 
-    ${prescIngest} ${prescMethod} 
-    de ${prescHr} em ${prescHr} hora(s)
-    ${prescDay > 0 ? " — por " + prescDay + " dia(s)" : ""}
-    `;
+    const prescText = `${partOne} ${partTwo} ${partThree} ${partFour}`;
 
     const p = document.createElement("p");
     const medic = document.createTextNode(prescText);
@@ -170,6 +214,32 @@ $(document).ready(function () {
     );
 
     currentPreview.appendChild(p);
+  }
+
+  function getObs() {
+    const obsText = createFormData();
+    const obs = obsText.get("textObs");
+    return obs;
+  }
+
+  function createObsPreview(str) {
+    if (!str) {
+      return;
+    }
+    const container = document.createElement("p");
+    const text = document.createTextNode(str);
+    container.appendChild(text);
+
+    const span = document.createElement("span");
+    const x = document.createTextNode("X");
+    span.appendChild(x);
+    container.appendChild(span);
+
+    const obsPreview = document.querySelector("#preview_obs #main_preview");
+
+    const firstChild = obsPreview.firstChild;
+
+    obsPreview.insertBefore(container, firstChild);
   }
 
   const datePreview = new Date().toLocaleDateString("pt-BR", {
@@ -195,6 +265,12 @@ $(document).ready(function () {
     btnResetMedic();
   });
 
+  $("#btn_add_obs").click(() => {
+    const obs = getObs();
+    createObsPreview(obs);
+    btnResetObs();
+  });
+
   $("#preview_prescription #main_preview").on("click", (e) => {
     if (e.target.nodeName === "SPAN") {
       const remove = e.target.parentNode;
@@ -202,20 +278,14 @@ $(document).ready(function () {
     }
   });
 
-  $("#preview_prescription").hide();
-
-  $("#prescription").click(() => {
-    console.log("Prescrição");
-    $("#preview_procedure").hide();
-    $("#preview_prescription").show();
-    $(".fieldset_medic").slideDown(700);
-    $(".field_buttons").slideUp(700);
+  $("#preview_obs #main_preview").on("click", (e) => {
+    if (e.target.nodeName === "SPAN") {
+      const remove = e.target.parentNode;
+      $(remove).remove();
+    }
   });
-  $("#procedure").click(() => {
-    console.log("Encaminhamento");
-    $("#preview_procedure").show();
-    $("#preview_prescription").hide();
-    $(".fieldset_info").slideDown(700);
-    $(".field_buttons").slideUp(700);
+
+  $("#btn_print").click(() => {
+    window.print();
   });
 });

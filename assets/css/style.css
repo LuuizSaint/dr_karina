@@ -204,7 +204,8 @@ main section {
   padding: 1rem;
 }
 main section #preview_prescription,
-main section #preview_procedure {
+main section #preview_procedure,
+main section #preview_obs {
   background-image: url(/assets/images/bg_receituario.png);
   background-position: right;
   background-size: cover;
@@ -229,6 +230,7 @@ main section #preview_procedure {
 #header_preview p:first-child {
   font-family: var(--font-dr);
   font-size: 2rem;
+  font-weight: 600;
 }
 #preview_prescription #name_preview {
   text-align: center;
@@ -250,7 +252,8 @@ main section #preview_procedure {
 #main_preview span {
   display: none;
   font-size: 0.8rem;
-  padding-left: 1rem;
+  padding: 0rem 1rem;
+  cursor: pointer;
 }
 #main_preview p:hover span {
   display: block;
@@ -283,6 +286,11 @@ main section #preview_procedure {
   content: "🏢";
   padding-right: 0.4rem;
   filter: grayscale(100%);
+}
+#preview_obs #header_preview p {
+  font-family: var(--font-all-text);
+  font-weight: 400;
+  font-size: 2rem;
 }
 main section #btn_prev_container {
   display: flex;
