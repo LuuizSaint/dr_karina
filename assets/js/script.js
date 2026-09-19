@@ -139,6 +139,7 @@ $(document).ready(function () {
     const currentPreview = document.querySelector(
       "#preview_procedure #main_preview",
     );
+    p.setAttribute("class", "removeForNewPrint");
     currentPreview.appendChild(p);
 
     return;
@@ -179,6 +180,7 @@ $(document).ready(function () {
     const container = document.createElement("p");
     const name = document.createTextNode(obj.patient);
 
+    container.setAttribute("class", "removeForNewPrint");
     container.appendChild(name);
 
     const namePreview = document.querySelector(
@@ -208,6 +210,8 @@ $(document).ready(function () {
     const x = document.createTextNode("X");
     span.appendChild(x);
     p.appendChild(span);
+
+    p.setAttribute("class", "removeForNewPrint");
 
     const currentPreview = document.querySelector(
       "#preview_prescription #main_preview",
@@ -239,6 +243,7 @@ $(document).ready(function () {
 
     const firstChild = obsPreview.firstChild;
 
+    container.setAttribute("class", "removeForNewPrint");
     obsPreview.insertBefore(container, firstChild);
   }
 
@@ -287,5 +292,9 @@ $(document).ready(function () {
 
   $("#btn_print").click(() => {
     window.print();
+  });
+
+  $("#btn_new_print").click(() => {
+    $(".removeForNewPrint").remove();
   });
 });

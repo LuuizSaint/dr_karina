@@ -124,7 +124,7 @@
     /*
       Tamanho físico real de uma folha A4
     */
-
+    display: flex !important;
     width: 210mm !important;
     min-width: 210mm !important;
     max-width: 210mm !important;
