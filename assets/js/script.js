@@ -1,32 +1,7 @@
 $(document).ready(function () {
   $(
-    ".fieldset_medic, .fieldset_info, .field_text,#preview_prescription, #preview_obs",
+    ".fieldset_medic, .fieldset_info, .field_text, #preview_prescription, #preview_obs",
   ).hide();
-
-  $("#prescription").click(() => {
-    $("#preview_prescription").show();
-    $("#preview_procedure").hide();
-    $("#preview_obs").hide();
-
-    $(".fieldset_medic").slideDown(700);
-    $(".field_buttons").slideUp(700);
-  });
-  $("#procedure").click(() => {
-    $("#preview_procedure").show();
-    $("#preview_prescription").hide();
-    $("#preview_obs").hide();
-
-    $(".fieldset_info").slideDown(700);
-    $(".field_buttons").slideUp(700);
-  });
-  $("#guidance").click(() => {
-    $("#preview_obs").show();
-    $("#preview_procedure").hide();
-    $("#preview_prescription").hide();
-
-    $(".field_text").slideDown(700);
-    $(".field_buttons").slideUp(700);
-  });
 
   $("#btn_info").click(function (e) {
     $("#preview_procedure").show();
@@ -48,12 +23,6 @@ $(document).ready(function () {
     $(".field_buttons").slideUp(700);
     $(".field_text").slideUp(700);
   });
-  $("#btn_imp").click(function (e) {
-    $(".field_buttons").slideToggle(700);
-    $(".fieldset_medic").slideUp(700);
-    $(".fieldset_info").slideUp(700);
-    $(".field_text").slideUp(700);
-  });
   $("#btn_obs").click(function (e) {
     $("#preview_obs").show();
     $("#preview_procedure").hide();
@@ -64,6 +33,8 @@ $(document).ready(function () {
     $(".fieldset_info").slideUp(700);
     $(".field_buttons").slideUp(700);
   });
+
+  let namePatient;
 
   $(".fieldset_info").on("click", "button[type=reset]", (event) => {
     event.preventDefault();
@@ -110,6 +81,32 @@ $(document).ready(function () {
     return form;
   }
 
+  function toUpper(str) {
+    const strResult = str
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+
+    return strResult;
+  }
+
+  function takeFirstName() {
+    const arrName = namePatient.split(" ");
+    namePatient = arrName[0].charAt(0).toUpperCase() + arrName[0].slice(1);
+
+    return namePatient;
+  }
+
+  function period(time) {
+    const trueTime = time.split(":");
+    console.log(trueTime[0]);
+    if (Number(trueTime[0]) <= 11) {
+      return time + " da manhã";
+    } else {
+      return time + " da tarde";
+    }
+  }
+
   function createProcedPreview(obj) {
     if (obj.name === "") {
       return;
@@ -126,9 +123,9 @@ $(document).ready(function () {
     });
 
     const procedText = `
-    Paciente ${obj.name},
+    Paciente ${toUpper(obj.name)},
     Estar no Hospital ${obj.place === "sta_casa" ? "Santa Casa de Votuporanga" : "(Unimed - Casa Saúde)"}, 
-    às ${obj.time}, 
+    às ${period(obj.time)},
     ${date}, 
     para procedimento odontológico ambulatorial sem necessidade de
     Internação. Aos meus cuidados
@@ -142,6 +139,7 @@ $(document).ready(function () {
     p.setAttribute("class", "removeForNewPrint");
     currentPreview.appendChild(p);
 
+    namePatient = obj.name;
     return;
   }
 
@@ -178,7 +176,7 @@ $(document).ready(function () {
     const prescDay = obj.day;
 
     const container = document.createElement("p");
-    const name = document.createTextNode(obj.patient);
+    const name = document.createTextNode(toUpper(obj.patient));
 
     container.setAttribute("class", "removeForNewPrint");
     container.appendChild(name);
@@ -231,16 +229,29 @@ $(document).ready(function () {
       return;
     }
     const container = document.createElement("p");
-    const text = document.createTextNode(str);
-    container.appendChild(text);
+    const strong = document.createElement("strong");
+    const italic = document.createElement("i");
+    const text = document.createTextNode(toUpper(str));
+    italic.appendChild(text);
+    strong.appendChild(italic);
+    container.appendChild(strong);
 
     const span = document.createElement("span");
     const x = document.createTextNode("X");
     span.appendChild(x);
     container.appendChild(span);
 
-    const obsPreview = document.querySelector("#preview_obs #main_preview");
+    const patientName = document.createTextNode(takeFirstName());
+    const patientNameContainer = document.createElement("p");
+    patientNameContainer.appendChild(patientName);
 
+    const obsName = document.querySelector("#preview_obs #header_preview");
+    const firstChildName = obsName.firstChild;
+
+    patientNameContainer.setAttribute("class", "patientName");
+    obsName.insertBefore(patientNameContainer, firstChildName);
+
+    const obsPreview = document.querySelector("#preview_obs #main_preview");
     const firstChild = obsPreview.firstChild;
 
     container.setAttribute("class", "removeForNewPrint");

@@ -100,6 +100,10 @@ main nav form {
   flex-direction: column;
   border-radius: 10px;
 }
+.textTransform {
+  text-transform: capitalize;
+}
+
 main nav form label {
   padding-left: 1rem;
   color: var(--border-color);
@@ -232,6 +236,7 @@ main section #preview_obs {
   font-size: 2rem;
   font-weight: 600;
 }
+
 #preview_prescription #name_preview {
   text-align: center;
 }
@@ -287,10 +292,19 @@ main section #preview_obs {
   padding-right: 0.4rem;
   filter: grayscale(100%);
 }
+#preview_obs #header_preview {
+  display: flex;
+  flex-direction: column-reverse;
+}
 #preview_obs #header_preview p {
   font-family: var(--font-all-text);
   font-weight: 400;
   font-size: 2rem;
+}
+#preview_obs #header_preview .patientName {
+  font-size: 1.4rem;
+  padding-left: 2rem;
+  font-weight: 200;
 }
 main section #btn_prev_container {
   display: flex;
