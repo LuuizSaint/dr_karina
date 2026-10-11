@@ -117,13 +117,12 @@
   /* =========================================================
      PREVIEWS
      ========================================================= */
+  .no-print {
+    display: none !important;
+  }
 
-  #preview_procedure,
-  #preview_prescription,
-  #preview_obs {
-    /*
-      Tamanho físico real de uma folha A4
-    */
+  /* Exibe somente a tela selecionada */
+  .print {
     display: flex !important;
     width: 210mm !important;
     min-width: 210mm !important;
@@ -133,41 +132,19 @@
     min-height: 297mm !important;
     max-height: 297mm !important;
 
-    /*
-      Remove margens da visualização da tela
-    */
-
     margin: 0 !important;
     padding: 0 !important;
     border: none !important;
 
-    /*
-      Muito importante:
-      remove qualquer escala usada no preview
-    */
-
     transform: none !important;
-    transform-origin: top left !important;
-
     zoom: 1 !important;
 
-    /*
-      O preview vira a referência para
-      elementos position: absolute
-    */
-
     position: relative !important;
-
-    /*
-      Fundo A4
-    */
+    overflow: hidden !important;
 
     background-image: url("../images/bg_print.png") !important;
-
     background-size: 100% 100% !important;
-
     background-position: top left !important;
-
     background-repeat: no-repeat !important;
 
     /*
@@ -223,7 +200,7 @@
   #preview_prescription #footer_preview {
     font-size: 1.2rem;
   }
-  #preview_obs {
+  #preview_obs.print {
     display: flex !important;
     flex-direction: column !important;
 
@@ -243,7 +220,6 @@
     background-position: center !important;
     background-repeat: no-repeat !important;
   }
-
   #preview_obs > #header_preview {
     position: static !important;
 

@@ -8,6 +8,10 @@ $(document).ready(function () {
     $("#preview_prescription").hide();
     $("#preview_obs").hide();
 
+    $("#preview_procedure").attr("class", "print");
+    $("#preview_prescription").attr("class", "no-print");
+    $("#preview_obs").attr("class", "no-print");
+
     $(".fieldset_info").slideToggle(700);
     $(".fieldset_medic").slideUp(700);
     $(".field_buttons").slideUp(700);
@@ -18,6 +22,10 @@ $(document).ready(function () {
     $("#preview_procedure").hide();
     $("#preview_obs").hide();
 
+    $("#preview_procedure").attr("class", "no-print");
+    $("#preview_prescription").attr("class", "print");
+    $("#preview_obs").attr("class", "no-print");
+
     $(".fieldset_medic").slideToggle(700);
     $(".fieldset_info").slideUp(700);
     $(".field_buttons").slideUp(700);
@@ -27,6 +35,10 @@ $(document).ready(function () {
     $("#preview_obs").show();
     $("#preview_procedure").hide();
     $("#preview_prescription").hide();
+
+    $("#preview_procedure").attr("class", "no-print");
+    $("#preview_prescription").attr("class", "no-print");
+    $("#preview_obs").attr("class", "print");
 
     $(".field_text").slideToggle(700);
     $(".fieldset_medic").slideUp(700);
@@ -252,6 +264,14 @@ $(document).ready(function () {
     span.appendChild(x);
     container.appendChild(span);
 
+    const obsPreview = document.querySelector("#preview_obs #main_preview");
+    const firstChild = obsPreview.firstChild;
+
+    container.setAttribute("class", "removeForNewPrint");
+    obsPreview.insertBefore(container, firstChild);
+  }
+
+  function createName() {
     const patientName = document.createTextNode(takeFirstName());
     const patientNameContainer = document.createElement("p");
     patientNameContainer.appendChild(patientName);
@@ -261,12 +281,6 @@ $(document).ready(function () {
 
     patientNameContainer.setAttribute("class", "patientName");
     obsName.insertBefore(patientNameContainer, firstChildName);
-
-    const obsPreview = document.querySelector("#preview_obs #main_preview");
-    const firstChild = obsPreview.firstChild;
-
-    container.setAttribute("class", "removeForNewPrint");
-    obsPreview.insertBefore(container, firstChild);
   }
 
   const datePreview = new Date().toLocaleDateString("pt-BR", {
@@ -299,6 +313,7 @@ $(document).ready(function () {
   });
 
   $("#btn_add_jejum").click(() => {
+    createName();
     const time = getFormJejumTime();
     $("#hr_jejum").text(time["jejum"] + ";");
     btnResetJejum();
