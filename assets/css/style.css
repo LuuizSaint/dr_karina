@@ -306,6 +306,15 @@ main section #preview_obs {
   padding-left: 2rem;
   font-weight: 200;
 }
+#jejum_time {
+  margin-right: 1rem;
+}
+#jejum_container {
+  display: flex;
+}
+#preview_obs #hr_jejum {
+  padding: 0 0 0 0.4rem;
+}
 main section #btn_prev_container {
   display: flex;
   justify-content: end;

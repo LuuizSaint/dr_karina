@@ -114,6 +114,11 @@
               <option>Amoxicilina 400mg/5ml</option>
               <option>Ondif 4mg</option>
               <option>Dipirona Solução 50mg/ml</option>
+              <option>Ibuprofeno 100mg/ml</option>
+              <option>Ondif 8mg</option>
+              <option>Nimesulida100mg</option>
+              <option>Azitromicina 200mg/5ml</option>
+              <option>Azitromicina 500mg</option>
               <option>Amoxicilina 500mg</option>
               <option>Dexametasona 4mg</option>
               <option>Novalgina 1g</option>
@@ -150,6 +155,8 @@
                 <option value="Comprimido">Comprimido</option>
                 <option value="Filme">Filme</option>
                 <option value="Frasco">Frasco(s)</option>
+                <option value="Gotas">Gotas</option>
+                <option value="Dose">Dose</option>
               </select>
             </div>
             <div class="prescription">
@@ -176,7 +183,13 @@
             </div>
           </div>
           <button type="button" id="btn_obs">Observações:</button>
+
           <div class="field_text">
+            <div class="field_jejum">
+              <label for="jejum_time">Jejum:</label> <br />
+              <input type="time" name="jejumTime" id="jejum_time" />
+              <button id="btn_add_jejum" type="button">Adicionar</button>
+            </div>
             <label for="text_obs">Observações: </label>
             <textarea
               name="textObs"
@@ -229,10 +242,13 @@
             <p>Orientações Pré e Pós operatória</p>
           </div>
           <div id="main_preview">
+            <div id="jejum_container">
+              <p>→ Jejum total a partir:</p>
+              <p id="hr_jejum"></p>
+            </div>
             <p>
-              → Jejum total a partir das 23:00 horas; Não é permitido dar agua,
-              leite ou alimentos. Nesse período dar somente a medicação, nas
-              doses e horários conforme orientado;
+              → Não é permitido dar agua, leite ou alimentos. Nesse período dar
+              somente a medicação, nas doses e horários conforme orientado;
             </p>
             <p>
               → Estar no Hospital as ........ : ........(da ...........) do dia

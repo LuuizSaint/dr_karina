@@ -62,6 +62,9 @@ $(document).ready(function () {
   function btnResetObs() {
     $("#text_obs").val("");
   }
+  function btnResetJejum() {
+    $("#jejum_time").val("");
+  }
 
   function createFormData() {
     const formData = new FormData(form, submitter);
@@ -77,6 +80,14 @@ $(document).ready(function () {
     form.date = formInfo.get("dateField");
     form.time = formInfo.get("TimeField");
     form.weight = formInfo.get("weightField");
+
+    return form;
+  }
+
+  function getFormJejumTime() {
+    const formTime = createFormData();
+    const form = {};
+    form.jejum = formTime.get("jejumTime");
 
     return form;
   }
@@ -285,6 +296,12 @@ $(document).ready(function () {
     const obs = getObs();
     createObsPreview(obs);
     btnResetObs();
+  });
+
+  $("#btn_add_jejum").click(() => {
+    const time = getFormJejumTime();
+    $("#hr_jejum").text(time["jejum"] + ";");
+    btnResetJejum();
   });
 
   $("#preview_prescription #main_preview").on("click", (e) => {
