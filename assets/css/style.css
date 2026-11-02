@@ -3,22 +3,27 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 @font-face {
   font-family: "Tangerine";
   src: url(/assets/css/fonts/Tangerine-Bold.ttf);
 }
+
 @font-face {
   font-family: "FiraRegular";
   src: url(/assets/css/fonts/FiraSans-Regular.ttf);
 }
+
 @font-face {
   font-family: "FiraBold";
   src: url(/assets/css/fonts/FiraSans-Bold.ttf);
 }
+
 @font-face {
   font-family: "FiraLight";
   src: url(/assets/css/fonts/FiraSans-Light.ttf);
 }
+
 :root {
   --main-color: #7334e4;
   --second-color: #9450f2;
@@ -38,6 +43,7 @@
   --font-all-text: "FiraRegular";
   --font-dr: "Tangerine";
 }
+
 /* ######################################################################### */
 body {
   background-color: var(--bg-color);
@@ -47,6 +53,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+
 #background {
   position: fixed;
   inset: 0;
@@ -54,10 +61,12 @@ body {
   height: 100%;
   z-index: -1;
 }
+
 /* ######################################################################### */
 header {
   background-color: var(--main-color);
 }
+
 header div {
   width: var(--max-wd);
   padding: 2rem;
@@ -67,6 +76,7 @@ header div {
   background-repeat: no-repeat;
   background-size: contain;
 }
+
 /* ######################################################################### */
 main {
   width: var(--max-wd);
@@ -75,6 +85,7 @@ main {
   margin: auto;
   padding: 1rem 0;
 }
+
 main nav {
   background: rgba(0, 0, 0, 0);
   backdrop-filter: blur(10px);
@@ -88,18 +99,21 @@ main nav {
   border: 1px solid var(--border-color);
   border-bottom: 4px solid var(--border-color);
 }
+
 main nav form {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   row-gap: 0.7rem;
 }
+
 .fieldset_info,
 .fieldset_medic {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
 }
+
 .textTransform {
   text-transform: capitalize;
 }
@@ -111,17 +125,20 @@ main nav form label {
   font-size: 1rem;
   font-family: var(--font-label);
 }
+
 main nav form #date_time_input {
   display: flex;
   margin-bottom: 0.4rem;
   column-gap: 1rem;
 }
+
 nav form #date_time_input input {
   width: 48%;
 }
+
 main nav form input,
 main nav form select,
-#date_time_input > input {
+#date_time_input>input {
   margin: 0.4rem 0 0.4rem 0;
   padding: 0.6rem;
   border-radius: 0.5rem;
@@ -135,19 +152,29 @@ main nav form select,
   transition-timing-function: linear;
   font-family: var(--font-all-text);
 }
+
 main nav form input:hover,
 main nav form select:hover {
   box-shadow: 0px 1px 6px 0px var(--second-color);
   transform: translateY(-0.33em);
 }
+
 main nav form .prescription {
   display: flex;
   column-gap: 1rem;
 }
+
 main nav form .prescription input,
 main nav form .prescription select {
   width: 100%;
 }
+
+#obs_types {
+  margin-top: .7rem;
+  display: flex;
+  column-gap: 1.4rem;
+}
+
 #text_obs {
   width: 100%;
   border-radius: 0.5rem;
@@ -163,9 +190,11 @@ main nav form .form_btn {
   display: flex;
   justify-content: space-between;
 }
+
 main nav form .form_btn {
   margin-top: 0.5rem;
 }
+
 .field_buttons {
   display: flex;
   flex-direction: column;
@@ -176,6 +205,7 @@ main nav form .form_btn {
   border: 1px solid var(--border-color);
   border-bottom: 4px solid var(--border-color);
 }
+
 main nav button {
   padding: 0.6rem;
   border-radius: 0.5rem;
@@ -187,12 +217,15 @@ main nav button {
   transform: translateY(-0.2em);
   transition: all linear 0.04s;
 }
+
 button:hover {
   transform: translateY(-0.33em);
 }
+
 button:active {
   transform: translateY(0);
 }
+
 /* ########################################################################## */
 main section {
   border-radius: 0.5rem;
@@ -207,6 +240,7 @@ main section {
   align-items: center;
   padding: 1rem;
 }
+
 main section #preview_prescription,
 main section #preview_procedure,
 main section #preview_obs {
@@ -231,6 +265,7 @@ main section #preview_obs {
   text-align: center;
   font-size: 0.9rem;
 }
+
 #header_preview p:first-child {
   font-family: var(--font-dr);
   font-size: 2rem;
@@ -240,29 +275,35 @@ main section #preview_obs {
 #preview_prescription #name_preview {
   text-align: center;
 }
+
 #preview_procedure #name_preview {
   text-align: center;
   text-decoration: underline;
   letter-spacing: 1px;
 }
+
 #main_preview {
   padding: 0 2rem;
   text-align: start;
   width: 100%;
 }
+
 #main_preview p {
   margin-bottom: 1rem;
   display: flex;
 }
+
 #main_preview span {
   display: none;
   font-size: 0.8rem;
   padding: 0rem 1rem;
   cursor: pointer;
 }
+
 #main_preview p:hover span {
   display: block;
 }
+
 #footer_preview {
   width: 100%;
   padding-right: 1rem;
@@ -272,15 +313,18 @@ main section #preview_obs {
   align-items: end;
   row-gap: 0.4rem;
 }
+
 #footer_preview p {
   display: flex;
   align-items: end;
 }
+
 #footer_preview p:first-child::before {
   content: "📞";
   padding-right: 0.4rem;
   filter: grayscale(100%);
 }
+
 #footer_preview p:nth-child(2)::before {
   content: "📍";
   padding-right: 0.4rem;
@@ -292,29 +336,36 @@ main section #preview_obs {
   padding-right: 0.4rem;
   filter: grayscale(100%);
 }
+
 #preview_obs #header_preview {
   display: flex;
   flex-direction: column-reverse;
 }
+
 #preview_obs #header_preview p {
   font-family: var(--font-all-text);
   font-weight: 400;
   font-size: 2rem;
 }
+
 #preview_obs #header_preview .patientName {
   font-size: 1.4rem;
   padding-left: 2rem;
   font-weight: 200;
 }
+
 #jejum_time {
   margin-right: 1rem;
 }
+
 #jejum_container {
   display: flex;
 }
+
 #preview_obs #hr_jejum {
   padding: 0 0 0 0.4rem;
 }
+
 main section #btn_prev_container {
   display: flex;
   justify-content: end;

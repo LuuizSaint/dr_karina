@@ -1,296 +1,230 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link
-      rel="shortcut icon"
-      href="assets/images/logo.png"
-      type="image/x-icon"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./assets/css/print.css"
-      media="print"
-    />
-    <title>Drª Karina</title>
-  </head>
-  <body>
-    <svg
-      id="background"
-      xmlns="http://www.w3.org/2000/svg"
-      version="1.1"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      xmlns:svgjs="http://svgjs.dev/svgjs"
-      width="1440"
-      height="560"
-      preserveAspectRatio="none"
-      viewBox="0 0 1440 560"
-    >
-      <g mask='url("#SvgjsMask1128")' fill="none">
-        <path
-          d="M1464 560L0 560 L0 399.68Q17.68 345.36, 72 363.03Q119.5 338.52, 144 386.02Q212.61 334.63, 264 403.24Q294.07 313.31, 384 343.39Q459.72 299.11, 504 374.83Q556.48 307.31, 624 359.79Q652.6 316.39, 696 345Q745.81 322.81, 768 372.62Q798.47 331.09, 840 361.56Q924.21 325.77, 960 409.99Q986.8 316.79, 1080 343.59Q1126.35 317.94, 1152 364.29Q1223.62 315.9, 1272 387.52Q1287.62 331.13, 1344 346.75Q1415.95 298.71, 1464 370.66z"
-          fill="rgba(202, 166, 253, 1)"
-        ></path>
-        <path
-          d="M1560 560L0 560 L0 426.03Q33.05 387.07, 72 420.12Q154.78 382.9, 192 465.68Q235.81 389.49, 312 433.29Q336.73 386.02, 384 410.75Q414.18 368.93, 456 399.11Q527.51 350.63, 576 422.14Q635.29 409.43, 648 468.72Q666.85 415.57, 720 434.42Q766.05 360.47, 840 406.51Q893.05 339.56, 960 392.61Q1011.35 371.96, 1032 423.3Q1108.81 380.11, 1152 456.91Q1155.63 388.55, 1224 392.18Q1279.35 375.53, 1296 430.88Q1345.83 408.7, 1368 458.53Q1377.9 396.43, 1440 406.34Q1505.14 351.48, 1560 416.62z"
-          fill="rgba(169, 109, 253, 1)"
-        ></path>
-        <path
-          d="M1488 560L0 560 L0 455.76Q83.43 419.19, 120 502.62Q161.94 424.56, 240 466.49Q283.31 437.8, 312 481.1Q365.39 462.49, 384 515.88Q388.07 447.95, 456 452.02Q497.69 421.71, 528 463.4Q580.15 443.55, 600 495.71Q672.03 447.74, 720 519.76Q733 460.76, 792 473.77Q868.84 430.61, 912 507.45Q945.41 420.86, 1032 454.27Q1084.73 435, 1104 487.73Q1179.96 443.69, 1224 519.65Q1226.82 450.47, 1296 453.29Q1356.7 441.99, 1368 502.69Q1421.47 436.16, 1488 489.64z"
-          fill="rgba(141, 88, 237, 1)"
-        ></path>
-        <path
-          d="M1512 560L0 560 L0 543.63Q31.43 503.06, 72 534.49Q118.14 460.63, 192 506.78Q279.34 474.12, 312 561.46Q359.12 488.58, 432 535.7Q483.84 467.54, 552 519.37Q608.4 503.77, 624 560.17Q665.25 529.42, 696 570.67Q713.5 516.17, 768 533.68Q817.44 463.12, 888 512.56Q976.7 481.26, 1008 569.96Q1021.48 511.44, 1080 524.93Q1149.92 474.86, 1200 544.78Q1277.87 502.64, 1320 580.51Q1324.11 512.62, 1392 516.72Q1457.31 462.03, 1512 527.33z"
-          fill="rgba(115, 52, 228, 1)"
-        ></path>
-      </g>
-      <defs>
-        <mask id="SvgjsMask1128">
-          <rect width="1440" height="560" fill="#ffffff"></rect>
-        </mask>
-      </defs>
-    </svg>
-    <header>
-      <div></div>
-    </header>
-    <main>
-      <nav>
-        <form id="formContainer" action="#" method="post">
-          <button type="button" id="btn_info">Encaminhamento:</button>
-          <div class="fieldset_info">
-            <label for="name_field">Nome:</label>
-            <input
-              type="text"
-              name="nameField"
-              id="name_field"
-              placeholder="Paciente: "
-            />
-            <label for="place_field">Local:</label>
-            <select name="placeField" id="place_field">
-              <option value="sta_casa" selected>
-                Santa Casa de Votuporanga
-              </option>
-              <option value="unimed">UniMed - Casa Saúde</option>
-            </select>
-            <label for="date_field">Data e Hora:</label>
-            <div id="date_time_input">
-              <input type="date" name="dateField" id="date_field" />
-              <input type="time" name="TimeField" id="time_field" />
-            </div>
-            <label for="weight_field">Peso: </label>
-            <input
-              type="number"
-              name="weightField"
-              id="weight_field"
-              step="0.1"
-              min="1"
-              placeholder="Peso em Kg"
-            />
-            <div class="form_btn">
-              <button type="reset">Apagar</button>
-              <button id="btn_add_info" type="button">Adicionar</button>
-            </div>
-          </div>
-          <button type="button" id="btn_medic">Prescrição:</button>
-          <div class="fieldset_medic">
-            <label for="name_pat_field">Nome:</label>
-            <input
-              type="text"
-              name="namePatField"
-              id="name_pat_field"
-              placeholder="Ao menor / Sr(a): "
-            />
-            <label for="medic_field">Medicamentos:</label>
-            <input
-              type="text"
-              name="medicNameField"
-              id="med_name_field"
-              list="medic_list"
-            />
-            <datalist id="medic_list">
-              <option>Amoxicilina 400mg/5ml</option>
-              <option>Ondif 4mg</option>
-              <option>Dipirona Solução 50mg/ml</option>
-              <option>Ibuprofeno 100mg/ml</option>
-              <option>Ondif 8mg</option>
-              <option>Nimesulida100mg</option>
-              <option>Azitromicina 200mg/5ml</option>
-              <option>Azitromicina 500mg</option>
-              <option>Amoxicilina 500mg</option>
-              <option>Dexametasona 4mg</option>
-              <option>Novalgina 1g</option>
-            </datalist>
-            <div class="prescription">
-              <input
-                type="number"
-                name="medAmountField"
-                id="med_amount_field"
-                min="1"
-                placeholder="Quantidade:"
-              />
-              <select name="medBoxesField" id="med_boxes_field">
-                <option value="Caixa" selected>Caixa(s)</option>
-                <option value="Frasco">Frasco(s)</option>
-              </select>
-            </div>
-            <div class="prescription">
-              <select name="medFormField" id="med_form_field">
-                <option value="Tomar" selected>Tomar</option>
-                <option value="Colocar">Colocar</option>
-                <option value="Bochecho">Bochecho</option>
-                <option value="Passar">Passar</option>
-              </select>
-              <input
-                type="number"
-                name="medAmountIngestedField"
-                id="med_amount_ingested_field"
-                min="1"
-                placeholder="Qtd:"
-              />
-              <select name="medMethodField" id="med_method_field">
-                <option value="ML" selected>ML</option>
-                <option value="Comprimido">Comprimido</option>
-                <option value="Filme">Filme</option>
-                <option value="Frasco">Frasco(s)</option>
-                <option value="Gotas">Gotas</option>
-                <option value="Dose">Dose</option>
-              </select>
-            </div>
-            <div class="prescription">
-              <input
-                type="number"
-                name="medHrField"
-                id="med_hr_field"
-                max="12"
-                min="1"
-                placeholder="De (Hrs):"
-              />
-              <input
-                type="number"
-                name="medDayField"
-                id="med_day_field"
-                max="7"
-                min="1"
-                placeholder="Por (Dias):"
-              />
-            </div>
-            <div class="form_btn">
-              <button type="reset">Apagar</button>
-              <button id="btn_add_medic" type="button">Adicionar</button>
-            </div>
-          </div>
-          <button type="button" id="btn_obs">Observações:</button>
 
-          <div class="field_text">
-            <div class="field_jejum">
-              <label for="jejum_time">Jejum:</label> <br />
-              <input type="time" name="jejumTime" id="jejum_time" />
-              <button id="btn_add_jejum" type="button">Adicionar</button>
-            </div>
-            <label for="text_obs">Observações: </label>
-            <textarea
-              name="textObs"
-              id="text_obs"
-              cols="30"
-              rows="10"
-              placeholder="Escreva aqui:"
-            ></textarea>
-            <button id="btn_add_obs" type="button">Adicionar</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="./assets/css/print.css" media="print" />
+  <title>Drª Karina</title>
+</head>
+
+<body>
+  <svg id="background" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:svgjs="http://svgjs.dev/svgjs" width="1440" height="560" preserveAspectRatio="none" viewBox="0 0 1440 560">
+    <g mask='url("#SvgjsMask1128")' fill="none">
+      <path
+        d="M1464 560L0 560 L0 399.68Q17.68 345.36, 72 363.03Q119.5 338.52, 144 386.02Q212.61 334.63, 264 403.24Q294.07 313.31, 384 343.39Q459.72 299.11, 504 374.83Q556.48 307.31, 624 359.79Q652.6 316.39, 696 345Q745.81 322.81, 768 372.62Q798.47 331.09, 840 361.56Q924.21 325.77, 960 409.99Q986.8 316.79, 1080 343.59Q1126.35 317.94, 1152 364.29Q1223.62 315.9, 1272 387.52Q1287.62 331.13, 1344 346.75Q1415.95 298.71, 1464 370.66z"
+        fill="rgba(202, 166, 253, 1)"></path>
+      <path
+        d="M1560 560L0 560 L0 426.03Q33.05 387.07, 72 420.12Q154.78 382.9, 192 465.68Q235.81 389.49, 312 433.29Q336.73 386.02, 384 410.75Q414.18 368.93, 456 399.11Q527.51 350.63, 576 422.14Q635.29 409.43, 648 468.72Q666.85 415.57, 720 434.42Q766.05 360.47, 840 406.51Q893.05 339.56, 960 392.61Q1011.35 371.96, 1032 423.3Q1108.81 380.11, 1152 456.91Q1155.63 388.55, 1224 392.18Q1279.35 375.53, 1296 430.88Q1345.83 408.7, 1368 458.53Q1377.9 396.43, 1440 406.34Q1505.14 351.48, 1560 416.62z"
+        fill="rgba(169, 109, 253, 1)"></path>
+      <path
+        d="M1488 560L0 560 L0 455.76Q83.43 419.19, 120 502.62Q161.94 424.56, 240 466.49Q283.31 437.8, 312 481.1Q365.39 462.49, 384 515.88Q388.07 447.95, 456 452.02Q497.69 421.71, 528 463.4Q580.15 443.55, 600 495.71Q672.03 447.74, 720 519.76Q733 460.76, 792 473.77Q868.84 430.61, 912 507.45Q945.41 420.86, 1032 454.27Q1084.73 435, 1104 487.73Q1179.96 443.69, 1224 519.65Q1226.82 450.47, 1296 453.29Q1356.7 441.99, 1368 502.69Q1421.47 436.16, 1488 489.64z"
+        fill="rgba(141, 88, 237, 1)"></path>
+      <path
+        d="M1512 560L0 560 L0 543.63Q31.43 503.06, 72 534.49Q118.14 460.63, 192 506.78Q279.34 474.12, 312 561.46Q359.12 488.58, 432 535.7Q483.84 467.54, 552 519.37Q608.4 503.77, 624 560.17Q665.25 529.42, 696 570.67Q713.5 516.17, 768 533.68Q817.44 463.12, 888 512.56Q976.7 481.26, 1008 569.96Q1021.48 511.44, 1080 524.93Q1149.92 474.86, 1200 544.78Q1277.87 502.64, 1320 580.51Q1324.11 512.62, 1392 516.72Q1457.31 462.03, 1512 527.33z"
+        fill="rgba(115, 52, 228, 1)"></path>
+    </g>
+    <defs>
+      <mask id="SvgjsMask1128">
+        <rect width="1440" height="560" fill="#ffffff"></rect>
+      </mask>
+    </defs>
+  </svg>
+  <header>
+    <div></div>
+  </header>
+  <main>
+    <nav>
+      <form id="formContainer" action="#" method="post">
+        <button type="button" id="btn_info">Encaminhamento:</button>
+        <div class="fieldset_info">
+          <label for="name_field">Nome:</label>
+          <input type="text" name="nameField" id="name_field" placeholder="Paciente: " />
+          <label for="place_field">Local:</label>
+          <select name="placeField" id="place_field">
+            <option value="sta_casa" selected>
+              Santa Casa de Votuporanga
+            </option>
+            <option value="unimed">UniMed - Casa Saúde</option>
+          </select>
+          <label for="date_field">Data e Hora:</label>
+          <div id="date_time_input">
+            <input type="date" name="dateField" id="date_field" />
+            <input type="time" name="TimeField" id="time_field" />
           </div>
-        </form>
-      </nav>
-      <section>
-        <div id="preview_procedure">
-          <div id="header_preview">
-            <p>Dra. Karina Simonelly</p>
-            <p>Cirurgiã-Dentista</p>
-            <p>CRO-SP 124.253</p>
-          </div>
-          <div id="name_preview">
-            <p>Procedimento Ambulatorial</p>
-          </div>
-          <div id="main_preview"></div>
-          <div id="date_preview"></div>
-          <div id="footer_preview">
-            <p>(17) 99734-0541</p>
-            <p>Avenida da Saudade, 2302</p>
-            <p>Cidade Nova - Votuporanga - SP.</p>
-          </div>
-        </div>
-        <div id="preview_prescription">
-          <div id="header_preview">
-            <p>Dra. Karina Simonelly</p>
-            <p>Cirurgiã-Dentista</p>
-            <p>CRO-SP 124.253</p>
-          </div>
-          <div id="name_preview">
-            <p>Uso Interno - Via Oral</p>
-          </div>
-          <div id="main_preview"></div>
-          <div id="date_preview"></div>
-          <div id="footer_preview">
-            <p>(17) 99734-0541</p>
-            <p>Avenida da Saudade, 2302</p>
-            <p>Cidade Nova - Votuporanga - SP.</p>
-          </div>
-        </div>
-        <div id="preview_obs">
-          <div id="header_preview">
-            <p>Orientações Pré e Pós operatória</p>
-          </div>
-          <div id="main_preview">
-            <div id="jejum_container">
-              <p>→ Jejum total a partir:</p>
-              <p id="hr_jejum"></p>
-            </div>
-            <p>
-              → Não é permitido dar agua, leite ou alimentos. Nesse período dar
-              somente a medicação, nas doses e horários conforme orientado;
-            </p>
-            <p>
-              → Estar no Hospital as ........ : ........(da ...........) do dia
-              ........../............/2026;
-            </p>
-            <p>
-              → Após alta hospitalar deixar a criança descansar (dormir se
-              quiser) não ficar acordando a criança para dar comida; Não pode
-              tomar sol ou realizar atividades físicas por 48 horas (repouso por
-              48 horas); Atenção, é normal a criança apresentar vômito e em
-              casos de extrações sair um pouquinho de sangue enquanto dorme
-              (saliva com sangue)
-            </p>
-            <p>
-              → Após alta hospitalar dar alimentos leves para a criança comer em
-              pequenas quantidades (evitar dar líquidos antes de dar algo para
-              comer) dar preferencialmente alimentos gelados como sorvetes,
-              picolés de fruta e Danone. Não dar alimentos quentes ou duros e
-              nada de exageros; Alimentação pastosa por 2 dias;
-            </p>
-            <p>
-              → Realizar higienização normal da boca evitando o local da
-              cirurgia e só realizar bochechos após 5 dias;
-            </p>
-            <p>
-              → Retornar ao consultório na data agendada, não poderá faltar ao
-              retorno ele é extremamente necessário e não é opcional e será de
-              sua responsabilidade agenda-lo;
-            </p>
-            <p>→ Qualquer intercorrência ligar no número 17 99734-0541.</p>
+          <label for="weight_field">Peso: </label>
+          <input type="number" name="weightField" id="weight_field" step="0.1" min="1" placeholder="Peso em Kg" />
+          <div class="form_btn">
+            <button type="reset">Apagar</button>
+            <button id="btn_add_info" type="button">Adicionar</button>
           </div>
         </div>
-        <div id="btn_prev_container">
-          <button id="btn_new_print" type="button">Nova Impressão</button>
-          <button id="btn_print" type="button">Imprimir</button>
+        <button type="button" id="btn_medic">Prescrição:</button>
+        <div class="fieldset_medic">
+          <label for="name_pat_field">Nome:</label>
+          <input type="text" name="namePatField" id="name_pat_field" placeholder="Ao menor / Sr(a): " />
+          <label for="medic_field">Medicamentos:</label>
+          <input type="text" name="medicNameField" id="med_name_field" list="medic_list" />
+          <datalist id="medic_list">
+            <option>Amoxicilina 400mg/5ml</option>
+            <option>Ondif 4mg</option>
+            <option>Dipirona Solução 50mg/ml</option>
+            <option>Ibuprofeno 100mg/ml</option>
+            <option>Ondif 8mg</option>
+            <option>Nimesulida100mg</option>
+            <option>Azitromicina 200mg/5ml</option>
+            <option>Azitromicina 500mg</option>
+            <option>Amoxicilina 500mg</option>
+            <option>Dexametasona 4mg</option>
+            <option>Novalgina 1g</option>
+          </datalist>
+          <div class="prescription">
+            <input type="number" name="medAmountField" id="med_amount_field" min="1" placeholder="Quantidade:" />
+            <select name="medBoxesField" id="med_boxes_field">
+              <option value="Caixa" selected>Caixa(s)</option>
+              <option value="Frasco">Frasco(s)</option>
+            </select>
+          </div>
+          <div class="prescription">
+            <select name="medFormField" id="med_form_field">
+              <option value="Tomar" selected>Tomar</option>
+              <option value="Colocar">Colocar</option>
+              <option value="Bochecho">Bochecho</option>
+              <option value="Passar">Passar</option>
+            </select>
+            <input type="number" name="medAmountIngestedField" id="med_amount_ingested_field" min="1"
+              placeholder="Qtd:" />
+            <select name="medMethodField" id="med_method_field">
+              <option value="ML" selected>ML</option>
+              <option value="Comprimido">Comprimido</option>
+              <option value="Filme">Filme</option>
+              <option value="Frasco">Frasco(s)</option>
+              <option value="Gotas">Gotas</option>
+              <option value="Dose">Dose</option>
+            </select>
+          </div>
+          <div class="prescription">
+            <input type="number" name="medHrField" id="med_hr_field" max="12" min="1" placeholder="De (Hrs):" />
+            <input type="number" name="medDayField" id="med_day_field" max="7" min="1" placeholder="Por (Dias):" />
+          </div>
+          <div class="form_btn">
+            <button type="reset">Apagar</button>
+            <button id="btn_add_medic" type="button">Adicionar</button>
+          </div>
         </div>
-      </section>
-    </main>
-    <footer>
-      <p>Feito com ❤ por Luiz D. Grande</p>
-    </footer>
-    <script src="assets/js/jQuery.js"></script>
-    <script src="assets/js/script.js"></script>
-  </body>
+        <button type="button" id="btn_obs">Observações:</button>
+        <div class="field_text">
+          <div id="obs_types">
+            <button type="button" id="type1">Tipo 1</button>
+            <button type="button" id="type2">Tipo 2</button>
+          </div>
+          <div class="field_jejum">
+            <label for="jejum_time">Jejum:</label> <br />
+            <input type="time" name="jejumTime" id="jejum_time" />
+            <button id="btn_add_jejum" type="button">Adicionar</button>
+          </div>
+          <label for="text_obs">Observações: </label>
+          <textarea name="textObs" id="text_obs" cols="30" rows="10" placeholder="Escreva aqui:"></textarea>
+          <button id="btn_add_obs" type="button">Adicionar</button>
+        </div>
+      </form>
+    </nav>
+    <section>
+      <div id="preview_procedure">
+        <div id="header_preview">
+          <p>Dra. Karina Simonelly</p>
+          <p>Cirurgiã-Dentista</p>
+          <p>CRO-SP 124.253</p>
+        </div>
+        <div id="name_preview">
+          <p>Procedimento Ambulatorial</p>
+        </div>
+        <div id="main_preview"></div>
+        <div id="date_preview"></div>
+        <div id="footer_preview">
+          <p>(17) 99734-0541</p>
+          <p>Avenida da Saudade, 2302</p>
+          <p>Cidade Nova - Votuporanga - SP.</p>
+        </div>
+      </div>
+      <div id="preview_prescription">
+        <div id="header_preview">
+          <p>Dra. Karina Simonelly</p>
+          <p>Cirurgiã-Dentista</p>
+          <p>CRO-SP 124.253</p>
+        </div>
+        <div id="name_preview">
+          <p>Uso Interno - Via Oral</p>
+        </div>
+        <div id="main_preview"></div>
+        <div id="date_preview"></div>
+        <div id="footer_preview">
+          <p>(17) 99734-0541</p>
+          <p>Avenida da Saudade, 2302</p>
+          <p>Cidade Nova - Votuporanga - SP.</p>
+        </div>
+      </div>
+      <div id="preview_obs">
+        <div id="header_preview">
+          <p>Orientações Pré e Pós operatória</p>
+        </div>
+        <div id="main_preview">
+          <div id="jejum_container">
+            <p>→ Jejum total a partir:</p>
+            <p id="hr_jejum"></p>
+          </div>
+          <p>
+            → Não é permitido dar agua, leite ou alimentos.
+          </p>
+          <div id="obs_type_text">
+
+          </div>
+          <p>
+            → Estar no Hospital as ........ : ........(da ...........) do dia
+            ........../............/2026;
+          </p>
+          <p>
+            → Após alta hospitalar deixar a criança descansar (dormir se
+            quiser) não ficar acordando a criança para dar comida; Não pode
+            tomar sol ou realizar atividades físicas por 48 horas (repouso por
+            48 horas); Atenção, é normal a criança apresentar vômito e em
+            casos de extrações sair um pouquinho de sangue enquanto dorme
+            (saliva com sangue)
+          </p>
+          <p>
+            → Após alta hospitalar dar alimentos leves para a criança comer em
+            pequenas quantidades (evitar dar líquidos antes de dar algo para
+            comer) dar preferencialmente alimentos gelados como sorvetes,
+            picolés de fruta e Danone. Não dar alimentos quentes ou duros e
+            nada de exageros; Alimentação pastosa por 2 dias;
+          </p>
+          <p>
+            → Realizar higienização normal da boca evitando o local da
+            cirurgia e só realizar bochechos após 5 dias;
+          </p>
+          <p>
+            → Retornar ao consultório na data agendada, não poderá faltar ao
+            retorno ele é extremamente necessário e não é opcional e será de
+            sua responsabilidade agenda-lo;
+          </p>
+          <p>→ Qualquer intercorrência ligar no número 17 99734-0541.</p>
+        </div>
+      </div>
+
+      <div id="btn_prev_container">
+        <button id="btn_new_print" type="button">Nova Impressão</button>
+        <button id="btn_print" type="button">Imprimir</button>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>Feito com ❤ por Luiz D. Grande</p>
+  </footer>
+  <script src="assets/js/jQuery.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+
 </html>

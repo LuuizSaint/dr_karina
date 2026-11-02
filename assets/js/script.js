@@ -8,7 +8,7 @@ $(document).ready(function () {
     $("#preview_prescription").hide();
     $("#preview_obs").hide();
 
-    $("#preview_procedure").attr("class", "print");
+    $("#preview_procedure").attr("class", "print_a5");
     $("#preview_prescription").attr("class", "no-print");
     $("#preview_obs").attr("class", "no-print");
 
@@ -23,7 +23,7 @@ $(document).ready(function () {
     $("#preview_obs").hide();
 
     $("#preview_procedure").attr("class", "no-print");
-    $("#preview_prescription").attr("class", "print");
+    $("#preview_prescription").attr("class", "print_a5");
     $("#preview_obs").attr("class", "no-print");
 
     $(".fieldset_medic").slideToggle(700);
@@ -211,14 +211,12 @@ $(document).ready(function () {
 
     namePreview.insertBefore(container, firstChild);
     const partOne = `${prescName} — ${prescAmount} ${prescBoxes}(s) —`;
-    const partTwo = `${
-      prescForm === "Colocar"
-        ? prescForm + " " + prescIngest + " Filme "
-        : prescForm + " " + prescIngest + " " + prescMethod
-    }`;
-    const partThree = `${
-      prescHr > 0 ? "de " + prescHr + " em " + prescHr + "hora(s) " : "por dia"
-    }`;
+    const partTwo = `${prescForm === "Colocar"
+      ? prescForm + " " + prescIngest + " Filme "
+      : prescForm + " " + prescIngest + " " + prescMethod
+      }`;
+    const partThree = `${prescHr > 0 ? "de " + prescHr + " em " + prescHr + "hora(s) " : "por dia"
+      }`;
     const partFour = `${prescDay > 0 ? " — por " + prescDay + " dia(s)" : ""}`;
 
     const prescText = `${partOne} ${partTwo} ${partThree} ${partFour}`;
@@ -289,6 +287,47 @@ $(document).ready(function () {
     day: "numeric",
   });
   $("#date_preview").text("Votuporanga " + datePreview);
+
+  $('#type1').click(() => {
+    const container = document.createElement("p");
+    const text = document.createTextNode("→ Nesse período dar somente a medicação, nas doses e horários conforme orientado; ");
+    const template = document.querySelector("#obs_type_text");
+
+    const span = document.createElement("span");
+    const x = document.createTextNode("X");
+    span.appendChild(x);
+    container.appendChild(span);
+
+    container.appendChild(text);
+
+    template.appendChild(container);
+
+  })
+  $('#type2').click(() => {
+    const container = document.createElement("p");
+    const strong = document.createElement("strong");
+    const italic = document.createElement("i");
+    const template = document.querySelector("#obs_type_text");
+
+    const part1 = "→ Atenção, levar as:.... medicações para o hospital,";
+    const part2 = "pois daremos após o procedimento";
+
+    const text = document.createTextNode(`${part1} ${part2}`);
+
+    italic.appendChild(text);
+    strong.appendChild(italic);
+
+
+    const span = document.createElement("span");
+    const x = document.createTextNode("X");
+    span.appendChild(x);
+    container.appendChild(span);
+
+    container.appendChild(strong);
+
+    template.appendChild(container);
+
+  })
 
   $("form").submit(function (e) {
     e.preventDefault();
