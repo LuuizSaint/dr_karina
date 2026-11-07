@@ -354,7 +354,7 @@ $(document).ready(function () {
   $("#btn_add_jejum").click(() => {
     createName();
     const time = getFormJejumTime();
-    $("#hr_jejum").text(time["jejum"] + ";");
+    $("#hr_jejum").html("<strong>" + time["jejum"] + " Horas </strong>" + " (Não é permitido dar água, leite ou alimentos.)");
     btnResetJejum();
   });
 
