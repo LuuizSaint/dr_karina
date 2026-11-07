@@ -248,7 +248,8 @@ main section {
 
 main section #preview_prescription,
 main section #preview_procedure,
-main section #preview_obs {
+main section #preview_obs,
+main section #preview_obs_copy {
   background-image: url(/assets/images/bg_receituario.png);
   background-position: right;
   background-size: cover;
@@ -347,7 +348,8 @@ main section #preview_obs {
   flex-direction: column-reverse;
 }
 
-#preview_obs #header_preview p {
+#preview_obs>#header_preview p, 
+#preview_obs_copy>#header_preview p {
   font-family: var(--font-all-text);
   font-weight: 400;
   font-size: 2rem;
@@ -358,7 +360,9 @@ main section #preview_obs {
   padding-left: 2rem;
   font-weight: 200;
 }
-
+#preview_obs_copy {
+  display: none !important;
+}
 #jejum_time {
   margin-right: 1rem;
 }

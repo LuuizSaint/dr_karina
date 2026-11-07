@@ -3,7 +3,18 @@
    ========================================================= */
 
 @page {
-  size: A4 portrait;
+  margin: 0;
+}
+
+/* Formato A5 Retrato para Procedimentos e Prescrições */
+@page a5_portrait {
+  size: A5 portrait;
+  margin: 0;
+}
+
+/* Formato A4 Paisagem para Observações (2 vias lado a lado) */
+@page a4_landscape {
+  size: A4 landscape;
   margin: 0;
 }
 
@@ -122,16 +133,13 @@
   }
 
   .print_a5 {
-    @page {
-      size: A5 portrait;
-      margin: 10mm;
-    }
-
+    page: a5_portrait; /* Aplica a regra do tamanho A5 */
     display: flex !important;
-    width: 148mm !important;
-    min-width: 148mm !important;
-    max-width: 148mm !important;
 
+    width: 218mm !important;
+    min-width: 218mm !important;
+    max-width: 218mm !important;
+    
     height: 210mm !important;
     min-height: 210mm !important;
     max-height: 210mm !important;
@@ -139,17 +147,8 @@
     margin: 0 !important;
     padding: 0 !important;
     border: none !important;
-
-    transform: none !important;
-    zoom: 1 !important;
-
     position: relative !important;
     overflow: hidden !important;
-
-    background-image: url("../images/bg_print.png") !important;
-    background-size: 100% 100% !important;
-    background-position: top left !important;
-    background-repeat: no-repeat !important;
 
     /*
       Impede conteúdo de ultrapassar
@@ -161,46 +160,26 @@
     /*
       Preserva cores
     */
-
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  /* Exibe somente a tela selecionada */
-  .print {
-    display: flex !important;
-    width: 210mm !important;
-    min-width: 210mm !important;
-    max-width: 210mm !important;
-
-    height: 297mm !important;
-    min-height: 297mm !important;
-    max-height: 297mm !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-
-    transform: none !important;
-    zoom: 1 !important;
-
-    position: relative !important;
-    overflow: hidden !important;
-
-    background-image: url("../images/bg_print.png") !important;
+    background-image: none !important;
     background-size: 100% 100% !important;
-    background-position: top left !important;
+    background-position: center !important;
     background-repeat: no-repeat !important;
 
-
-    overflow: hidden !important;
-
-
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
-  */ #preview_procedure #header_preview p:first-child {
+  #preview_procedure>#header_preview,
+  #preview_prescription>#header_preview,
+  #preview_procedure>#footer_preview,
+  #preview_prescription>#footer_preview {
+    display: none !important;
+  }
+
+
+
+
+  #preview_procedure #header_preview p:first-child {
     font-size: 2.7rem;
   }
 
@@ -249,32 +228,42 @@
   #preview_prescription #footer_preview {
     font-size: 1.2rem;
   }
+  #preview_obs_copy.print {
+    display: block !important;
+  }
 
-  #preview_obs.print,
-  .obs_copy {
+  #preview_obs.print, 
+  #preview_obs_copy.print{
+    /* page: a4_landscape; Força a impressora a deitar a folha A4 */
+
     display: flex !important;
     flex-direction: column !important;
-
     justify-content: flex-start !important;
     align-items: stretch !important;
 
-    width: 210mm !important;
-    height: auto !important;
+    /* Exatamente metade de uma folha A4 Paisagem (297mm / 2 = 148.5mm) */
+    width: 248mm !important;
+    min-width: 248mm !important;
+    max-width: 248mm !important;
+    
+    height: 310mm !important;
+    min-height: 310mm !important;
+    max-height: 310mm !important;
 
     margin: 0 !important;
     padding: 0 !important;
-
-    position: relative !important;
-
     border: none !important;
-
+    position: relative !important;
+    overflow: hidden !important;
+     
     background-image: none !important;
     background-size: 100% 100% !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
   }
 
-  #preview_obs>#header_preview {
+  #preview_obs>#header_preview, 
+  #preview_obs_copy>#header_preview {
     position: static !important;
 
     width: 100% !important;
@@ -288,12 +277,14 @@
     transform: none !important;
   }
 
-  #preview_obs>#header_preview p {
+  #preview_obs>#header_preview p, 
+  #preview_obs_copy>#header_preview p {
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  #preview_obs>#main_preview {
+  #preview_obs>#main_preview, 
+  #preview_obs_copy>#main_preview {
     position: static !important;
 
     width: 100% !important;
@@ -305,9 +296,13 @@
     transform: none !important;
   }
 
-  #preview_obs>#main_preview p {
+  #preview_obs>#main_preview p, 
+  #preview_obs_copy>#main_preview p {
     font-size: 1.4rem !important;
     margin: 0 0 4mm 0 !important;
     padding: 0 !important;
+  }
+    #preview_obs.print {
+    border-right: 1px dashed #ccc !important; 
   }
 }

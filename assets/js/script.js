@@ -11,6 +11,9 @@ $(document).ready(function () {
     $("#preview_procedure").attr("class", "print_a5");
     $("#preview_prescription").attr("class", "no-print");
     $("#preview_obs").attr("class", "no-print");
+     $("#preview_obs_copy").attr("class", "no-print");
+
+
 
     $(".fieldset_info").slideToggle(700);
     $(".fieldset_medic").slideUp(700);
@@ -25,6 +28,8 @@ $(document).ready(function () {
     $("#preview_procedure").attr("class", "no-print");
     $("#preview_prescription").attr("class", "print_a5");
     $("#preview_obs").attr("class", "no-print");
+     $("#preview_obs_copy").attr("class", "no-print");
+
 
     $(".fieldset_medic").slideToggle(700);
     $(".fieldset_info").slideUp(700);
@@ -39,6 +44,7 @@ $(document).ready(function () {
     $("#preview_procedure").attr("class", "no-print");
     $("#preview_prescription").attr("class", "no-print");
     $("#preview_obs").attr("class", "print");
+     $("#preview_obs_copy").attr("class", "print");
 
     $(".field_text").slideToggle(700);
     $(".fieldset_medic").slideUp(700);
@@ -115,7 +121,7 @@ $(document).ready(function () {
 
   function takeFirstName() {
     const arrName = namePatient.split(" ");
-    namePatient = arrName[0].charAt(0).toUpperCase() + arrName[0].slice(1);
+    namePatient = "Paciente: " + arrName[0].charAt(0).toUpperCase() + arrName[0].slice(1);
 
     return namePatient;
   }
@@ -354,7 +360,7 @@ $(document).ready(function () {
   $("#btn_add_jejum").click(() => {
     createName();
     const time = getFormJejumTime();
-    $("#hr_jejum").html("<strong>" + time["jejum"] + " Horas </strong>" + " (Não é permitido dar água, leite ou alimentos.)");
+    $("#hr_jejum").html("<strong>" + "→ Jejum total a partir: " +  time["jejum"] + " Horas </strong> " + " ( Não é permitido dar água, leite ou alimentos. )");
     btnResetJejum();
   });
 
