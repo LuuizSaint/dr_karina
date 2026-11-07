@@ -186,6 +186,11 @@ main nav form .prescription select {
   margin-bottom: 1rem;
 }
 
+.obs_copy {
+  display: none;
+  border: none;
+}
+
 main nav form .form_btn {
   display: flex;
   justify-content: space-between;

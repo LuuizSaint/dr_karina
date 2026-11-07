@@ -192,22 +192,15 @@
     background-position: top left !important;
     background-repeat: no-repeat !important;
 
-    /*
-      Impede conteúdo de ultrapassar
-      a folha
-    */
 
     overflow: hidden !important;
 
-    /*
-      Preserva cores
-    */
 
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
-  #preview_procedure #header_preview p:first-child {
+  */ #preview_procedure #header_preview p:first-child {
     font-size: 2.7rem;
   }
 
@@ -257,7 +250,8 @@
     font-size: 1.2rem;
   }
 
-  #preview_obs.print {
+  #preview_obs.print,
+  .obs_copy {
     display: flex !important;
     flex-direction: column !important;
 
@@ -265,14 +259,16 @@
     align-items: stretch !important;
 
     width: 210mm !important;
-    height: 297mm !important;
+    height: auto !important;
 
     margin: 0 !important;
     padding: 0 !important;
 
     position: relative !important;
 
-    background-image: url("../images/bg_print.png") !important;
+    border: none !important;
+
+    background-image: none !important;
     background-size: 100% 100% !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -310,31 +306,8 @@
   }
 
   #preview_obs>#main_preview p {
+    font-size: 1.4rem !important;
     margin: 0 0 4mm 0 !important;
     padding: 0 !important;
-  }
-
-  /* =========================================================
-     ELEMENTOS INTERNOS
-     ========================================================= */
-
-  #preview_procedure #header_preview,
-  #preview_prescription #header_preview,
-  #preview_obs #header_preview,
-  #preview_procedure #name_preview,
-  #preview_prescription #name_preview,
-  #preview_procedure #main_preview,
-  #preview_prescription #main_preview,
-  #preview_obs #main_preview,
-  #preview_procedure #date_preview,
-  #preview_prescription #date_preview,
-  #preview_procedure #footer_preview,
-  #preview_prescription #footer_preview {
-    /*
-      Caso seu CSS de tela tenha transformações,
-      elas não serão herdadas na impressão.
-    */
-
-    transform: none !important;
   }
 }
