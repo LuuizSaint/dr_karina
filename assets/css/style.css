@@ -10,19 +10,17 @@
 }
 
 @font-face {
-  font-family: "FiraRegular";
-  src: url(/assets/css/fonts/FiraSans-Regular.ttf);
+  font-family: "PlaywriteRegular";
+  src: url(/assets/css/fonts/PlaywriteITTrad-Regular.ttf);
 }
 
 @font-face {
-  font-family: "FiraBold";
-  src: url(/assets/css/fonts/FiraSans-Bold.ttf);
+  font-family: "PlaywriteLight";
+  src: url(/assets/css/fonts/PlaywriteITTrad-Light.ttf);
+
 }
 
-@font-face {
-  font-family: "FiraLight";
-  src: url(/assets/css/fonts/FiraSans-Light.ttf);
-}
+
 
 :root {
   --main-color: #7334e4;
@@ -39,9 +37,6 @@
 
   --max-wd: 1200px;
 
-  --font-label: "FiraBold";
-  --font-all-text: "FiraRegular";
-  --font-dr: "Tangerine";
 }
 
 /* ######################################################################### */
@@ -105,6 +100,17 @@ main nav form {
   flex-direction: column;
   border-radius: 10px;
   row-gap: 0.7rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.fieldset_sadt {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn_container_sadt {
+  display: flex;
+  justify-content: space-between;
 }
 
 .fieldset_info,
@@ -173,6 +179,10 @@ main nav form .prescription select {
   margin-top: .7rem;
   display: flex;
   column-gap: 1.4rem;
+}
+
+#obs_types button {
+  font-size: 0.9rem;
 }
 
 #text_obs {
@@ -246,10 +256,16 @@ main section {
   padding: 1rem;
 }
 
-main section #preview_prescription,
-main section #preview_procedure,
-main section #preview_obs,
-main section #preview_obs_copy {
+main section p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+
+#preview_sadt,
+#preview_prescription,
+#preview_procedure,
+#preview_obs,
+#preview_obs_copy {
   background-image: url(/assets/images/bg_receituario.png);
   background-position: right;
   background-size: cover;
@@ -267,15 +283,45 @@ main section #preview_obs_copy {
   justify-content: space-around;
 }
 
+
 #header_preview {
+  font-family: arial, Helvetica, sans-serif;
   text-align: center;
   font-size: 0.9rem;
 }
 
 #header_preview p:first-child {
-  font-family: var(--font-dr);
-  font-size: 2rem;
-  font-weight: 600;
+  font-family: "tangerine";
+  font-size: 2.3rem;
+  font-weight: 800;
+}
+
+#preview_sadt #name_preview>p,
+#preview_sadt #main_preview>p,
+#preview_procedure #name_preview>p,
+#preview_procedure #main_preview>p,
+#date_preview {
+  font-family: "PlaywriteRegular";
+}
+
+#preview_sadt #name_preview p:first-child {
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: fit-content;
+  margin: auto;
+}
+
+#preview_sadt #main_preview p {
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: fit-content;
+  margin: auto;
+}
+
+#preview_sadt #name_preview p {
+  text-align: center;
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 #preview_prescription #name_preview {
@@ -284,19 +330,28 @@ main section #preview_obs_copy {
 
 #preview_procedure #name_preview {
   text-align: center;
-  text-decoration: underline;
   letter-spacing: 1px;
+  border-bottom: 1px solid var(--border-color);
 }
 
-#main_preview {
-  padding: 0 2rem;
-  text-align: start;
+#preview_procedure #main_preview {
+  padding: 0rem 1.8rem
+}
+
+#date_preview_prescription {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#preview_prescription #main_preview {
+  list-style: decimal;
   width: 100%;
+  padding-left: 2rem;
 }
 
-#main_preview p {
-  margin-bottom: 1rem;
-  display: flex;
+#main_preview li {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: .7rem 0.4rem;
 }
 
 #main_preview span {
@@ -304,9 +359,11 @@ main section #preview_obs_copy {
   font-size: 0.8rem;
   padding: 0rem 1rem;
   cursor: pointer;
+  padding-top: 0.2rem;
+  text-align: end;
 }
 
-#main_preview p:hover span {
+#main_preview li:hover span {
   display: block;
 }
 
@@ -348,11 +405,41 @@ main section #preview_obs_copy {
   flex-direction: column-reverse;
 }
 
-#preview_obs>#header_preview p, 
+#preview_obs>#header_preview p,
 #preview_obs_copy>#header_preview p {
   font-family: var(--font-all-text);
   font-weight: 400;
   font-size: 2rem;
+}
+
+#preview_obs #main_preview {
+  text-align: start;
+  margin: 0rem 1rem;
+}
+
+#preview_obs #main_preview p {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+#preview_obs #main_preview .obsPreviewText {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#preview_obs #main_preview .fone strong {
+  padding-left: 0.5rem;
+}
+
+#preview_obs #main_preview p:hover>span {
+  display: block;
+  font-size: 0.8rem;
+  padding: 0rem;
+  cursor: pointer;
+  padding-top: 0.2rem;
 }
 
 #preview_obs #header_preview .patientName {
@@ -360,20 +447,25 @@ main section #preview_obs_copy {
   padding-left: 2rem;
   font-weight: 200;
 }
+
 #preview_obs_copy {
   display: none !important;
 }
+
 #jejum_time {
   margin-right: 1rem;
+}
+
+.time_jejum {
+  display: inline;
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 #jejum_container {
   display: flex;
 }
 
-#preview_obs #hr_jejum {
-  padding: 0 0 0 0.4rem;
-}
 
 main section #btn_prev_container {
   display: flex;

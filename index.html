@@ -39,7 +39,19 @@
   <main>
     <nav>
       <form id="formContainer" action="#" method="post">
-        <button type="button" id="btn_info">Encaminhamento:</button>
+        <button type="button" id="btn_sadt">Pedido de Sedação</button>
+        <div class="fieldset_sadt">
+          <label for="name_sadt_field">Nome:</label>
+          <input type="text" name="nameSadtField" id="name_sadt_field" placeholder="Nome: " />
+          <label for="reason_sadt_field">Motivo:</label>
+          <input type="text" name="reasonSadtField" id="reason_sadt_field" placeholder="Motivo: " />
+          <div class="btn_container_sadt">
+            <button type="reset">Apagar</button>
+            <button id="btn_add_sadt" type="button">Adicionar</button>
+          </div>
+        </div>
+        </div>
+        <button type="button" id="btn_info">Encaminhamento para Hospital</button>
         <div class="fieldset_info">
           <label for="name_field">Nome:</label>
           <input type="text" name="nameField" id="name_field" placeholder="Paciente: " />
@@ -62,22 +74,25 @@
             <button id="btn_add_info" type="button">Adicionar</button>
           </div>
         </div>
-        <button type="button" id="btn_medic">Prescrição:</button>
+        <button type="button" id="btn_medic">Prescrição Medicamentosa</button>
         <div class="fieldset_medic">
           <label for="name_pat_field">Nome:</label>
           <input type="text" name="namePatField" id="name_pat_field" placeholder="Ao menor / Sr(a): " />
           <label for="medic_field">Medicamentos:</label>
           <input type="text" name="medicNameField" id="med_name_field" list="medic_list" />
           <datalist id="medic_list">
-            <option>Amoxicilina 400mg/5ml</option>
-            <option>Ondif 4mg</option>
+            <option>Amoxicilina 250mg/5ml suspensão oral</option>
+            <option>Amoxicilina 400mg/5ml suspensão oral</option>
+            <option>Azitromicina 200mg/5ml</option>
             <option>Dipirona Solução 50mg/ml</option>
             <option>Ibuprofeno 100mg/ml</option>
-            <option>Ondif 8mg</option>
-            <option>Nimesulida100mg</option>
-            <option>Azitromicina 200mg/5ml</option>
+            <option>Ondif 4mg</option>
+            <option>Periogard</option>
+            <option>Omcilon Orabase</option>
             <option>Azitromicina 500mg</option>
-            <option>Amoxicilina 500mg</option>
+            <option>Ondif 8mg</option>
+            <option>Nimesulida 100mg</option>
+            <option>Amoxicilina 500mg suspensão oral</option>
             <option>Dexametasona 4mg</option>
             <option>Novalgina 1g</option>
           </datalist>
@@ -86,14 +101,16 @@
             <select name="medBoxesField" id="med_boxes_field">
               <option value="Caixa" selected>Caixa(s)</option>
               <option value="Frasco">Frasco(s)</option>
+              <option value="Bisnaga">Bisnaga(s)</option>
             </select>
           </div>
           <div class="prescription">
             <select name="medFormField" id="med_form_field">
               <option value="Tomar" selected>Tomar</option>
               <option value="Colocar">Colocar</option>
-              <option value="Bochecho">Bochecho</option>
               <option value="Passar">Passar</option>
+              <option value="Aplicar">Aplicar</option>
+              <option value="Realizar">Realizar</option>
             </select>
             <input type="number" name="medAmountIngestedField" id="med_amount_ingested_field" min="1"
               placeholder="Qtd:" />
@@ -104,6 +121,10 @@
               <option value="Frasco">Frasco(s)</option>
               <option value="Gotas">Gotas</option>
               <option value="Dose">Dose</option>
+              <option value="Bochecho">Bochecho</option>
+              <option value="fina camada sobre a lesão">Omcilon</option>
+              <option value="com auxilio de um algodão na gengiva e nos dentes (região afetada)">Priogard Criança
+              </option>
             </select>
           </div>
           <div class="prescription">
@@ -115,11 +136,11 @@
             <button id="btn_add_medic" type="button">Adicionar</button>
           </div>
         </div>
-        <button type="button" id="btn_obs">Observações:</button>
+        <button type="button" id="btn_obs">Orientações Pré e Pós Op.</button>
         <div class="field_text">
           <div id="obs_types">
-            <button type="button" id="type1">Tipo 1</button>
-            <button type="button" id="type2">Tipo 2</button>
+            <button type="button" id="type1">Restauração / Aparelho</button>
+            <button type="button" id="type2">Extração / Freio</button>
           </div>
           <div class="field_jejum">
             <label for="jejum_time">Jejum:</label> <br />
@@ -133,6 +154,23 @@
       </form>
     </nav>
     <section>
+      <div id="preview_sadt">
+        <div id="header_preview">
+          <p>Dra. Karina Simonelly</p>
+          <p>Cirurgiã-Dentista</p>
+          <p>CRO-SP 124.253</p>
+        </div>
+        <div id="name_preview">
+          <p>Guia SADT</p>
+          <p>Solicitação de sedação inalatória para procedimento Ododntológico</p>
+        </div>
+        <div id="main_preview"></div>
+        <div id="footer_preview">
+          <p>(17) 99734-0541</p>
+          <p>Avenida da Saudade, 2302</p>
+          <p>Cidade Nova - Votuporanga - SP.</p>
+        </div>
+      </div>
       <div id="preview_procedure">
         <div id="header_preview">
           <p>Dra. Karina Simonelly</p>
@@ -159,8 +197,8 @@
         <div id="name_preview">
           <p>Uso Interno - Via Oral</p>
         </div>
-        <div id="main_preview"></div>
-        <div id="date_preview"></div>
+        <ul id="main_preview"></ul>
+        <div id="date_preview_prescription"></div>
         <div id="footer_preview">
           <p>(17) 99734-0541</p>
           <p>Avenida da Saudade, 2302</p>
@@ -176,90 +214,34 @@
             <p id="hr_jejum"> </p>
           </div>
           <p>
-            
+            <strong>
+              <em>
+                → Atenção, levar as:.... medicações para o hospital, pois daremos após o procedimento
+              </em>
+            </strong>
           </p>
-          <div id="obs_type_text">
-
-          </div>
           <p>
             → Estar no Hospital as ........ : ........(da ...........) do dia
             ........../............/2026;
           </p>
-          <p>
-            → Após alta hospitalar deixar a criança descansar (dormir se
-            quiser) não ficar acordando a criança para dar comida; Não pode
-            tomar sol ou realizar atividades físicas por 48 horas (repouso por
-            48 horas); Atenção, é normal a criança apresentar vômito e em
-            casos de extrações sair um pouquinho de sangue enquanto dorme
-            (saliva com sangue)
+          <div id="type2Text4">
+          </div>
+          <div id="type2Text5">
+          </div>
+          <p id="type2Text6">
+
           </p>
-          <p>
-            → Após alta hospitalar dar alimentos leves para a criança comer em
-            pequenas quantidades (evitar dar líquidos antes de dar algo para
-            comer) dar preferencialmente alimentos gelados como sorvetes,
-            picolés de fruta e Danone. Não dar alimentos quentes ou duros e
-            nada de exageros; Alimentação pastosa por 2 dias;
-          </p>
-          <p>
-            → Realizar higienização normal da boca evitando o local da
-            cirurgia e só realizar bochechos após 5 dias;
-          </p>
+          <div id="type2Text7">
+          </div>
           <p>
             → Retornar ao consultório na data agendada, não poderá faltar ao
             retorno ele é extremamente necessário e não é opcional e será de
             sua responsabilidade agenda-lo;
           </p>
-          <p>→ Qualquer intercorrência ligar no número 17 99734-0541.</p>
-        </div>
-      </div>
-      <div id="preview_obs_copy">
-        <div id="header_preview">
-          <p>Orientações Pré e Pós operatória</p>
-        </div>
-        <div id="main_preview">
-          <div id="jejum_container">
-            <p>→ Jejum total a partir:</p> 
-            <p id="hr_jejum"></p>
-          </div>
-          <p>
-            → Não é permitido dar agua, leite ou alimentos.
-          </p>
-          <div id="obs_type_text">
-
-          </div>
-          <p>
-            → Estar no Hospital as ........ : ........(da ...........) do dia
-            ........../............/2026;
-          </p>
-          <p>
-            → Após alta hospitalar deixar a criança descansar (dormir se
-            quiser) não ficar acordando a criança para dar comida; Não pode
-            tomar sol ou realizar atividades físicas por 48 horas (repouso por
-            48 horas); Atenção, é normal a criança apresentar vômito e em
-            casos de extrações sair um pouquinho de sangue enquanto dorme
-            (saliva com sangue)
-          </p>
-          <p>
-            → Após alta hospitalar dar alimentos leves para a criança comer em
-            pequenas quantidades (evitar dar líquidos antes de dar algo para
-            comer) dar preferencialmente alimentos gelados como sorvetes,
-            picolés de fruta e Danone. Não dar alimentos quentes ou duros e
-            nada de exageros; Alimentação pastosa por 2 dias;
-          </p>
-          <p>
-            → Realizar higienização normal da boca evitando o local da
-            cirurgia e só realizar bochechos após 5 dias;
-          </p>
-          <p>
-            → Retornar ao consultório na data agendada, não poderá faltar ao
-            retorno ele é extremamente necessário e não é opcional e será de
-            sua responsabilidade agenda-lo;
-          </p>
-          <p>→ Qualquer intercorrência ligar no número 17 99734-0541.</p>
+          <p class="fone">→ Qualquer intercorrência ligar no número: <strong> (17) 99734-0541.</strong></p>
         </div>
       </div>
       <div id="btn_prev_container">
-        <button id="btn_new_print" type="button">Nova Impressão</button>
         <button id="btn_print" type="button">Imprimir</button>
       </div>
     </section>

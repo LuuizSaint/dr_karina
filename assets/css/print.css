@@ -133,13 +133,14 @@
   }
 
   .print_a5 {
-    page: a5_portrait; /* Aplica a regra do tamanho A5 */
+    page: a5_portrait;
+    /* Aplica a regra do tamanho A5 */
     display: flex !important;
 
     width: 218mm !important;
     min-width: 218mm !important;
     max-width: 218mm !important;
-    
+
     height: 210mm !important;
     min-height: 210mm !important;
     max-height: 210mm !important;
@@ -169,6 +170,9 @@
     print-color-adjust: exact !important;
   }
 
+
+  #preview_sadt>#header_preview,
+  #preview_sadt>#footer_preview,
   #preview_procedure>#header_preview,
   #preview_prescription>#header_preview,
   #preview_procedure>#footer_preview,
@@ -176,28 +180,39 @@
     display: none !important;
   }
 
-
-
-
-  #preview_procedure #header_preview p:first-child {
-    font-size: 2.7rem;
-  }
-
-  #preview_procedure #header_preview {
-    font-size: 1.2rem;
-  }
-
   #preview_procedure #name_preview {
     font-size: 1.3rem;
   }
 
-  #preview_procedure #main_preview {
-    font-size: 1.3rem;
+  #preview_sadt p,
+  #preview_procedure p,
+  #preview_prescription p {
+    font-size: 1.4rem;
     line-height: 1.8rem;
+  }
+
+  #preview_sadt #name_preview p {
+    font-size: 1.4rem;
+  }
+
+  #preview_sadt #main_preview p {
+    margin-bottom: 20rem;
+    font-size: 1.4rem;
+  }
+
+  .time_jejum {
+    font-size: 1.7rem;
+    border-bottom: 1px solid var(--border-color);
   }
 
   #preview_procedure #date_preview {
     font-size: 1.2rem;
+    margin-bottom: 20rem;
+  }
+
+  #date_preview_prescription {
+    font-size: 1.4rem;
+    margin-bottom: 20rem;
   }
 
   #preview_procedure #footer_preview {
@@ -228,12 +243,13 @@
   #preview_prescription #footer_preview {
     font-size: 1.2rem;
   }
+
   #preview_obs_copy.print {
     display: block !important;
   }
 
-  #preview_obs.print, 
-  #preview_obs_copy.print{
+  #preview_obs.print,
+  #preview_obs_copy.print {
     /* page: a4_landscape; Força a impressora a deitar a folha A4 */
 
     display: flex !important;
@@ -245,7 +261,7 @@
     width: 248mm !important;
     min-width: 248mm !important;
     max-width: 248mm !important;
-    
+
     height: 310mm !important;
     min-height: 310mm !important;
     max-height: 310mm !important;
@@ -255,14 +271,14 @@
     border: none !important;
     position: relative !important;
     overflow: hidden !important;
-     
+
     background-image: none !important;
     background-size: 100% 100% !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
   }
 
-  #preview_obs>#header_preview, 
+  #preview_obs>#header_preview,
   #preview_obs_copy>#header_preview {
     position: static !important;
 
@@ -277,13 +293,13 @@
     transform: none !important;
   }
 
-  #preview_obs>#header_preview p, 
+  #preview_obs>#header_preview p,
   #preview_obs_copy>#header_preview p {
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  #preview_obs>#main_preview, 
+  #preview_obs>#main_preview,
   #preview_obs_copy>#main_preview {
     position: static !important;
 
@@ -296,13 +312,14 @@
     transform: none !important;
   }
 
-  #preview_obs>#main_preview p, 
+  #preview_obs>#main_preview p,
   #preview_obs_copy>#main_preview p {
     font-size: 1.4rem !important;
     margin: 0 0 4mm 0 !important;
     padding: 0 !important;
   }
-    #preview_obs.print {
-    border-right: 1px dashed #ccc !important; 
+
+  #preview_obs.print {
+    border-right: 1px dashed #ccc !important;
   }
 }
