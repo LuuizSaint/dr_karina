@@ -184,20 +184,21 @@
     font-size: 1.3rem;
   }
 
-  #preview_sadt p,
   #preview_procedure p,
   #preview_prescription p {
-    font-size: 1.4rem;
-    line-height: 1.8rem;
+    font-size: 1.8rem;
+    line-height: 2.8rem;
   }
 
-  #preview_sadt #name_preview p {
-    font-size: 1.4rem;
+  #preview_sadt #name_preview p,
+  #preview_sadt #name_preview #guiaSadt {
+    font-size: 1.6rem;
   }
 
   #preview_sadt #main_preview p {
     margin-bottom: 20rem;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
   }
 
   .time_jejum {
@@ -206,7 +207,7 @@
   }
 
   #preview_procedure #date_preview {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     margin-bottom: 20rem;
   }
 
@@ -320,6 +321,6 @@
   }
 
   #preview_obs.print {
-    border-right: 1px dashed #ccc !important;
+    border-right: 3px dashed #ccc !important;
   }
 }

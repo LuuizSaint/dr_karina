@@ -321,7 +321,6 @@ main section p {
 #preview_sadt #name_preview p {
   text-align: center;
   font-size: 1.1rem;
-  border-bottom: 1px solid var(--border-color);
 }
 
 #preview_prescription #name_preview {
