@@ -6,17 +6,17 @@
 
 @font-face {
   font-family: "Tangerine";
-  src: url(/assets/css/fonts/Tangerine-Bold.ttf);
+  src: url(fonts/Tangerine-Regular.ttf);
 }
 
 @font-face {
   font-family: "PlaywriteRegular";
-  src: url(/assets/css/fonts/PlaywriteITTrad-Regular.ttf);
+  src: url(fonts/PlaywriteITTrad-Regular.ttf);
 }
 
 @font-face {
   font-family: "PlaywriteLight";
-  src: url(/assets/css/fonts/PlaywriteITTrad-Light.ttf);
+  src: url(fonts/PlaywriteITTrad-Light.ttf);
 
 }
 
@@ -266,7 +266,7 @@ main section p {
 #preview_procedure,
 #preview_obs,
 #preview_obs_copy {
-  background-image: url(/assets/images/bg_receituario.png);
+  background-image: url(../images/bg_receituario.png);
   background-position: right;
   background-size: cover;
   background-repeat: no-repeat;
