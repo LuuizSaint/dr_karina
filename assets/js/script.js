@@ -244,7 +244,6 @@ $(document).ready(function () {
       return;
     }
 
-    const prescPat = obj.patient;
     const prescName = obj.name;
     const prescAmount = obj.amount;
     const prescBoxes = obj.boxes;
@@ -266,11 +265,13 @@ $(document).ready(function () {
     const firstChild = namePreview.firstChild;
 
     namePreview.insertBefore(container, firstChild);
+
     const partOne = `${prescName} — ${prescAmount} ${prescBoxes}(s) —`;
-    const partTwo = `${prescForm === "Colocar"
-      ? prescForm + " " + prescIngest + " Filme "
-      : prescForm + " " + prescIngest + " " + prescMethod
-      }`;
+    // const partTwo = `${prescForm === "Colocar"
+    //   ? prescForm + " " + prescIngest + " Filme "
+    //   : prescForm + " " + prescIngest + " " + prescMethod
+    //   }`;
+    const partTwo = `${prescForm + " " + prescIngest + " " + prescMethod}`;
     const partThree = `${prescHr > 0 ? "de " + prescHr + " em " + prescHr + "hora(s) " : "por dia"
       }`;
     const partFour = `${prescDay > 0 ? " — por " + prescDay + " dia(s)" : ""}`;
