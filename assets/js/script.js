@@ -266,21 +266,35 @@ $(document).ready(function () {
 
     namePreview.insertBefore(container, firstChild);
 
-    const partOne = `${prescName} — ${prescAmount} ${prescBoxes}(s) —`;
-    // const partTwo = `${prescForm === "Colocar"
-    //   ? prescForm + " " + prescIngest + " Filme "
-    //   : prescForm + " " + prescIngest + " " + prescMethod
-    //   }`;
+    const partOne = `${prescName} — ${prescAmount} ${prescBoxes}(s): —`;
     const partTwo = `${prescForm + " " + prescIngest + " " + prescMethod}`;
     const partThree = `${prescHr > 0 ? "de " + prescHr + " em " + prescHr + "hora(s) " : "por dia"
       }`;
     const partFour = `${prescDay > 0 ? " — por " + prescDay + " dia(s)" : ""}`;
 
-    const prescText = `${partOne} ${partTwo} ${partThree} ${partFour}`;
+
+    const prescText = `${partOne} 
+            ${partTwo} ${partThree} ${partFour}`;
 
     const li = document.createElement("li");
-    const medic = document.createTextNode(prescText);
-    li.appendChild(medic);
+    const pre = document.createElement("pre");
+
+    const text = document.createTextNode(prescText);
+    pre.appendChild(text);
+    li.appendChild(pre);
+
+
+    // const prescTextTitle = `${partOne}`;
+    // const prescTextDescription = `${partTwo} ${partThree} ${partFour}`;
+    // const li = document.createElement("li");
+    // const title = document.createElement("p");
+    // const description = document.createElement("p");
+    // const titleText = document.createTextNode(prescTextTitle);
+    // const descriptionText = document.createTextNode(prescTextDescription);
+    // title.appendChild(titleText);
+    // description.appendChild(descriptionText);
+    // li.appendChild(title);
+    // li.appendChild(description);
 
     const span = document.createElement("span");
     const x = document.createTextNode("X");

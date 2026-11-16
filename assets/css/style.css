@@ -348,7 +348,7 @@ main section p {
   padding-left: 2rem;
 }
 
-#main_preview li {
+#main_preview li pre {
   font-family: Arial, Helvetica, sans-serif;
   padding: .7rem 0.4rem;
 }
