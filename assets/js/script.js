@@ -266,7 +266,7 @@ $(document).ready(function () {
 
     namePreview.insertBefore(container, firstChild);
 
-    const partOne = `${prescName} — ${prescAmount} ${prescBoxes}(s): —`;
+    const partOne = `${prescName} ———————————— ${prescAmount} ${prescBoxes}(s)`;
     const partTwo = `${prescForm + " " + prescIngest + " " + prescMethod}`;
     const partThree = `${prescHr > 0 ? "de " + prescHr + " em " + prescHr + "hora(s) " : "por dia"
       }`;
@@ -274,7 +274,7 @@ $(document).ready(function () {
 
 
     const prescText = `${partOne} 
-            ${partTwo} ${partThree} ${partFour}`;
+${partTwo} ${partThree} ${partFour}`;
 
     const li = document.createElement("li");
     const pre = document.createElement("pre");
